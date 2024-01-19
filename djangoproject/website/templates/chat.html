@@ -1,0 +1,94 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplifyagri Chatbot</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+            padding: 10px;
+        }
+
+        #chat-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #chat-messages {
+            padding: 20px;
+            overflow-y: scroll;
+            max-height: 300px;
+        }
+
+        #chat-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f5f5f5;
+        }
+
+        #user-input {
+            flex-grow: 1;
+            margin-right: 10px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #send-button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Simplifyagri Chatbot</h2>
+
+<div id="chat-container">
+    <div id="chat-messages">
+        {% for message in messages %}
+            <p>{{ message.content }}</p>
+            {% if message.show_buttons %}
+                {% if message.response == 'utter_planting_sowing' %}
+                    <!-- Buttons for Planting and Sowing -->
+                    <button type="submit" name="button" value="/planting">Planting</button>
+                    <button type="submit" name="button" value="/sowing">Sowing</button>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div id="chat-input">
+        <form method="post" action="">
+            {% csrf_token %}
+            <input type="text" id="user-input" name="message" placeholder="Type your message...">
+            <button type="submit" id="send-button">Send</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

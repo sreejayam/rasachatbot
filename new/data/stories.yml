@@ -1,0 +1,190 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+#  - intent: deny
+#  - action: utter_goodbye
+
+- story: cultivation path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cultivation
+  - action: utter_cultivation
+  - intent: deny
+  - action: utter_no
+
+- story: cultivation path 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cultivation
+  - action: utter_cultivation
+  - intent: affirm
+  - action: utter_yes
+  - intent: seed_variety
+  - action: utter_variety
+  - intent: irrigation_method
+  - action: utter_method
+  - intent: irrigation_source
+  - action: utter_source
+  - intent: total_cost
+  - action: utter_planting_sowing
+#  - action: action_extract_cost_entity
+  - intent: sowing
+  - action: utter_sowing
+  - intent: seedsfrom
+  - action: utter_days
+  - intent: days
+  - action: utter_fertilizer
+  - intent: fertilizers
+  - action: utter_interval_fertilizer
+  - intent: interval_fertilizer
+  - action: utter_weight_seed
+  - intent: weight_seed
+  - action: utter_method_seeding
+  - intent: method_seeding
+  - action: utter_labour_men
+  - intent: labour_count
+  - action: utter_labour_woman
+  - intent: labour_count
+  - action: utter_labourcost_men
+  - intent: labour_cost
+  - action: utter_labourcost_woman
+  - intent: labour_cost
+  - action: utter_seed_cost
+  - intent: labour_cost
+  - action: utter_total_cost_seeding
+  - intent: total_cost
+  - action: utter_days_seeding
+  - intent: seeding_days
+
+
+
+
+
+
+
+
+
+
+- story: cultivation path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cultivation
+  - action: utter_cultivation
+  - intent: affirm
+  - action: utter_yes
+  - intent: seed_variety
+  - action: utter_variety
+  - intent: irrigation_method
+  - action: utter_method
+  - intent: irrigation_source
+  - action: utter_source
+  - intent: total_cost
+  - action: utter_planting_sowing
+  - intent: planting
+  - action: utter_planting
+
+
+
+- story: cultivation path 5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cultivation
+  - action: utter_cultivation
+  - intent: affirm
+  - action: utter_yes
+  - intent: seed_variety
+  - action: utter_variety
+  - intent: irrigation_method
+  - action: utter_method
+  - intent: irrigation_source
+  - action: utter_source
+  - intent: total_cost
+  - action: utter_planting_sowing
+  - intent: planting
+  - action: utter_planting
+  - intent: make_it_your_own
+  - action: utter_make_it_your_own
+  - intent: affirm
+  - action: utter_fields
+  - intent: fields
+  - action: utter_weight_seed
+  - intent: weight_seed
+  - action: utter_sowing
+  - intent: seedsfrom
+  - action: utter_seed_cost
+  - intent: total_cost
+  - action: utter_labour_men
+  - intent: labour_count
+  - action: utter_labour_woman
+  - intent: labour_count
+  - action: utter_labourcost_men
+  - intent: labour_cost
+  - action: utter_labourcost_woman
+  - intent: labour_cost
+  - action: utter_fertilizer
+  - intent: fertilizers
+  - action: utter_interval_fertilizer
+  - intent: interval_fertilizer
+  - action: utter_total_cost_planting
+  - intent: total_cost
+
+
+
+
+
+
+#- story: cultivation path 4
+#  steps:
+#  - intent: greet
+#  - action: utter_name
+#  - intent: name
+#  - action: utter_crop_stage
+#  - intent: crop_stage
+#  - action: utter_submit
+#  - intent: affirm
+#  - action: utter_thankyou
+
+  
+#- story: cultivation path 4
+#  steps:
+#  - intent: greet
+#  - action: utter_name
+#  - intent: name
+#  - slot_was_set:
+#      - name: "{{ name }}"
+#  - action: utter_crop_stage
+#  - intent: crop_stage
+#  - slot_was_set:
+#      - crop_stage: "{{ crop_stage }}"
+#  - action: utter_submit
+#  - intent: affirm
+#  - action: utter_thankyou

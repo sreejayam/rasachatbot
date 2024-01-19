@@ -1,0 +1,175 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - cultivation
+  - seed_variety
+  - irrigation_method
+  - irrigation_source
+  - total_cost
+  - planting
+  - sowing
+  - seedsfrom
+  - days
+  - fertilizers
+  - interval_fertilizer
+  - weight_seed
+  - method_seeding
+  - seeding_days
+  - labour_count
+  - labour_cost
+  - make_it_your_own
+  - buying
+  - fields
+  - name
+  - crop_stage
+
+
+#slots:
+#  name:
+#    type: text
+#    auto_fill: False
+#  crop_stage:
+#    type: text
+#    auto_fill: False
+
+
+
+
+
+
+
+#slots:
+#  name:
+#    type: text
+#    mappings:
+#      - type: from_entity
+#        entity: name
+#
+#  crop_stage:
+#    type: text
+#    mappings:
+#      - type: from_entity
+#        entity: crop_stage
+
+
+responses:
+  utter_greet:
+  - text: "Hey! What is your current crop stage?"
+
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_cultivation:
+  - text: "Is your land ready for cultivation"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_no:
+  - text: "what you done today?"
+
+  utter_yes:
+  - text: "what is the seed variety?"
+    image: "https://www.yabibo.com/wp-content/uploads/2019/06/4-Important-Types.jpg"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+  utter_variety:
+  - text: "which irrigation method are you using?"
+
+  utter_method:
+  - text: "which irrigation source are you using?"
+  utter_source:
+  - text: "what is the total cost of irrigation?"
+  utter_planting_sowing:
+  - text: "What do you prefer:"
+    buttons:
+      - title: "planting"
+        payload: "/planting"
+      - title: "sowing"
+        payload: "/sowing"
+  utter_sowing:
+  - text: "where did you buy the seeds?"
+  utter_days:
+  - text: "After how many days fertilizers should be used?"
+  utter_fertilizer:
+  - text: "Which all fertilizers should be used?"
+  utter_interval_fertilizer:
+  - text: "What is the interval between applying fertilizers(in days)?"
+  utter_planting:
+  - text: "Do you buy the seeds or make it your own?"
+#  buttons:
+#    - title: "make_it_your_own"
+#      payload: "/make_it_your_own"
+#    - title: "buying"
+#      payload: "/buying"
+  utter_weight_seed:
+    - text: "weight of the seed in kg?"
+  utter_method_seeding:
+    - text: "method of seeding?"
+  utter_labour_men:
+    - text: "no of men labours?"
+  utter_labour_woman:
+    - text: "no of woman labours?"
+  utter_labourcost_men:
+    - text: "what is the labour cost for men?"
+  utter_labourcost_woman:
+    - text: "what is the labour cost for woman?"
+  utter_seed_cost:
+    - text: "what is the cost of seed per kg?"
+  utter_total_cost_seeding:
+    - text: "what is the cost seeding?"
+  utter_total_cost_planting:
+    - text: "what is the cost planting?"
+  utter_days_seeding:
+    - text: "how many days required to complete seeding?"
+  utter_make_it_your_own:
+    - text: "did you put the seed to sprout?"
+
+
+  utter_fields:
+    - text: "fields of which seed put to sprout"
+
+
+
+
+
+
+
+
+  utter_name:
+    - text: "please provide your name"
+
+  utter_crop_stage:
+    - text: "your current crop_stage"
+  utter_submit:
+    - text: "would you like to submit the details?"
+
+  utter_thankyou:
+    - text: "thank you for your valuable feedback"
+
+
+
+
+
+
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

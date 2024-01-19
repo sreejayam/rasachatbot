@@ -1,0 +1,240 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: cultivation
+  examples: |
+    -cultivation
+    -cultivating
+
+- intent: seed_variety
+  examples: |
+    -IR 20
+    -IR 64
+    -swarna
+    -PR-126
+- intent: irrigation_method
+  examples: |
+    -surface irrigation
+    -sprinkler irrigation
+    -drip irrigation
+    -surface
+    -sprinkler
+    -drip
+    
+
+- intent: irrigation_source
+  examples: |
+    -well
+    -canals
+    -Tanks
+    -Private canals
+    -tank
+    -canal
+
+- intent: total_cost
+  examples: |
+    - 1200rs
+    -1500rs
+    
+   
+    
+
+
+
+  
+
+- intent: planting
+  examples: |
+    -plant
+    -planting
+
+- intent: sowing
+  examples: |
+    -sow
+    -sowing
+
+- intent: seedsfrom
+  examples: |
+    -krishibhavan
+    -farmers
+
+- intent: days
+  examples: |
+    -1 day
+    -2 day
+    
+
+- intent: fertilizers
+  examples: |
+    -NPK
+    -Urea
+    -npk
+    -urea
+
+- intent: interval_fertilizer
+  examples: |
+    -12days
+    -30days
+
+- intent: weight_seed
+  examples: |
+    -20000kg
+    -30000kg
+    -40000kg
+- intent: method_seeding
+  examples: |
+    -seeding
+    -broadcasting
+    -seed drilling
+    -stripe seeding
+    -point seeding
+- intent: labour_count
+  examples: |
+    - 10 no
+    - 20 no
+
+- intent: labour_cost
+  examples: |
+    - 150 rs
+    - 250 rs
+
+
+- intent: seeding_days
+  examples: |
+    -one
+    -two
+    
+
+- intent: make_it_your_own
+  examples: |
+    -make_it_your_own
+    -make it
+    
+- intent: buying
+  examples: |
+    -buying
+    -buy
+       
+
+- intent: fields
+  examples: |
+    -pullan kandam
+    -puncha kandam
+
+#
+#
+#- intent: name
+#  examples: |
+#    - ashish
+#    - rahul
+#    - apneet
+#    - awakash
+#
+#
+#- intent: Crop_stage
+#  examples: |
+#    -cultivation
+#    -planting
+
+
+
+
+
+
+
+    
+  
+
+  
+    
+  
