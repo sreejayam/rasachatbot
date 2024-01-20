@@ -17,24 +17,7 @@ class CreateUserAPI(CreateAPIView):     #register
     serializer_class = CreateUserSerializer
     permission_classes = (AllowAny,)
 
-    # def create(self, request, *args, **kwargs):
-    #     serializer = self.get_serializer(data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     self.perform_create(serializer)
-    #     headers = self.get_success_headers(serializer.data)
-    #
-    #     # Generate token for the newly created user
-    #     user = serializer.instance
-    #     _, token = AuthToken.objects.create(user)
-    #
-    #     # Customize the response with the generated token
-    #     response_data = {
-    #         'message': 'User created successfully',
-    #         'user_data': serializer.data,
-    #         'token': token,
-    #     }
-    #
-    #     return Response(response_data, status=status.HTTP_201_CREATED, headers=headers)
+
 
 class UpdateUserAPI(UpdateAPIView):
     queryset = CustomUser.objects.all()
