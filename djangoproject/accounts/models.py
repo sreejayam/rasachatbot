@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Permission
+from djangoproject import utils
 
 
 class UserManager(BaseUserManager):
@@ -73,8 +74,11 @@ class CustomUser(AbstractBaseUser):
         return self.phone_number or "No phone number"
 class LandRegistrationInfo(models.Model):
 
-
+    user_id=models.CharField(max_length=255, null=True, blank=True)
     phone_number = models.ForeignKey(CustomUser,blank=True, null=True,on_delete=models.SET_NULL)
+    def save(self, *args, **kwargs):  # Custom save method to generate and assign a random crop_id before saving
+        self.user_id = utils.random_string("UID")
+        super(LandRegistrationInfo, self).save(*args, **kwargs)
 
 
 
@@ -100,7 +104,7 @@ class LandInfo(models.Model):
         ('Paddy', 'paddy')
     )
 
-    phone_number = models.ForeignKey(CustomUser,blank=True, null=True,on_delete=models.SET_NULL)
+    user_id = models.ForeignKey(CustomUser,blank=True, null=True,on_delete=models.SET_NULL)
     crop=  models.ForeignKey(LandRegistrationInfo,blank=True, null=True,on_delete=models.SET_NULL)
     irigation_facilities=models.CharField(max_length=128, choices=IRRIGATION_CHOICES, null=True, blank=True)
     Area = models.CharField(max_length=128, choices=AREA_CHOICES, null=True, blank=True)
@@ -120,6 +124,6 @@ class LandInfo(models.Model):
     krishibhavan= models.CharField(max_length=128, null=True)
 
     def __str__(self):
-        return str(self.phone_number) if self.phone_number else "No phone number available"
+        return str(self.user_id) if self.user_id else "No phone number available"
 
 
