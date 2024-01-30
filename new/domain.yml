@@ -29,34 +29,26 @@ intents:
   - fields
   - name
   - crop_stage
+  - provide_details
+  - provide_name
+  - provide_email
+  - show_all_data
 
 
-#slots:
-#  name:
-#    type: text
-#    auto_fill: False
-#  crop_stage:
-#    type: text
-#    auto_fill: False
-
-
-
-
-
-
-
-#slots:
-#  name:
-#    type: text
-#    mappings:
-#      - type: from_entity
-#        entity: name
-#
-#  crop_stage:
-#    type: text
-#    mappings:
-#      - type: from_entity
-#        entity: crop_stage
+entities:
+  - name
+  - email
+slots:
+  name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+  email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: email
 
 
 responses:
@@ -152,16 +144,17 @@ responses:
 
 
 
-  utter_name:
-    - text: "please provide your name"
+  utter_ask_name:
+    - text: "Sure,please give me your name"
+  utter_ask_email:
+    - text: "Sure,please give me your email"
 
-  utter_crop_stage:
-    - text: "your current crop_stage"
-  utter_submit:
-    - text: "would you like to submit the details?"
+  utter_thanks:
+    - text: "thanks, your data Name:{name} and Email:{email} is saved in the database"
+actions:
+  - action_save_data
+  - action_show_all_data
 
-  utter_thankyou:
-    - text: "thank you for your valuable feedback"
 
 
 
