@@ -91,9 +91,132 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
+- intent: cultivation
+  examples: |
+    -cultivation
+    -cultivating
+
+- intent: seed_variety
+  examples: |
+    -IR 20
+    -IR 64
+    -swarna
+    -PR-126
+- intent: irrigation_method
+  examples: |
+    -surface irrigation
+    -sprinkler irrigation
+    -drip irrigation
+    -surface
+    -sprinkler
+    -drip
+    
+
+- intent: irrigation_source
+  examples: |
+    -well
+    -canals
+    -Tanks
+    -Private canals
+    -tank
+    -canal
+
+- intent: total_cost
+  examples: |
+    -1200RS
+    
+    
+    
+    
+    
+   
+    
 
 
 
+  
+
+- intent: planting
+  examples: |
+    -plant
+    -planting
+
+- intent: sowing
+  examples: |
+    -sow
+    -sowing
+
+- intent: seedsfrom
+  examples: |
+    -krishibhavan
+    -farmers
+
+- intent: days
+  examples: |
+    -1
+    -2
+    
+
+- intent: fertilizers
+  examples: |
+    -NPK
+    -Urea
+    -npk
+    -urea
+
+- intent: interval_fertilizer
+  examples: |
+    -12days
+    -30days
+
+- intent: weight_seed
+  examples: |
+    -20000kg
+    -30000kg
+    -40000kg
+- intent: method_seeding
+  examples: |
+    -seeding
+    -broadcasting
+    -seed drilling
+    -stripe seeding
+    -point seeding
+- intent: labour_count
+  examples: |
+    - 10 no
+    - 20 no
+
+- intent: labour_cost
+  examples: |
+    - 150 rs
+    - 250 rs
+
+
+- intent: seeding_days
+  examples: |
+    -one
+    -two
+    
+
+- intent: make_it_your_own
+  examples: |
+    -make_it_your_own
+    -make it
+
+- intent: buying
+  examples: |
+    -buying
+    -buy
+       
+
+- intent: fields
+  examples: |
+    -pullan kandam
+    -puncha kandam
+
+
+
+######################################sql############################################################3
 
 - intent: provide_details
   examples: |
@@ -127,7 +250,7 @@ nlu:
     -what are the data in the database
     -dispaly the records
  
-
+##############################################################################################################
   
     
   

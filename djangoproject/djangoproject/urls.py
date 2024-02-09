@@ -27,5 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('website/', include('website.urls')),
     path('accounts/', include('accounts.urls')),
+    path('chatgpt_app/', include('chatgpt_app.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

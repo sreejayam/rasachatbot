@@ -34,10 +34,12 @@ intents:
   - provide_email
   - show_all_data
 
-
+#############################sql####################################################################
 entities:
   - name
   - email
+
+
 slots:
   name:
     type: text
@@ -51,6 +53,12 @@ slots:
         entity: email
 
 
+
+
+
+
+
+############################################################################################################
 responses:
   utter_greet:
   - text: "Hey! What is your current crop stage?"
@@ -154,6 +162,7 @@ responses:
 actions:
   - action_save_data
   - action_show_all_data
+  - action_extract_cost_entity     #for slot
 
 
 

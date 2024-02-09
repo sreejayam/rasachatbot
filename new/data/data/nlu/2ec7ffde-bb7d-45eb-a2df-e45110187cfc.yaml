@@ -1,0 +1,245 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hi
+    - heloo
+    - hello
+    - Hello
+    - helooo
+    - hy
+    - gdmng
+    - Good Morning
+    - Good evening
+    - Good night
+    - Good afternoon
+    - How are you
+- intent: goodbye
+  examples: |
+    - c u
+    - gd by
+    - c u later
+    - good bye
+    - gud bye
+    - goood bye
+    - bye bye
+- intent: affirm
+  examples: |
+    - ys
+    - yes
+    - yeah
+    - ya
+    - thats good
+    - of course
+    - perfectly good
+    - i agree
+    - yes it is
+- intent: deny
+  examples: |
+    - no
+    - not at all
+    - No
+    - Never
+    - no way
+    - not really
+    - i dont think so
+- intent: mood_great
+  examples: |
+    - nice
+    - great
+    - amazing
+    - wonderful
+    - super
+    - i am feeling great
+    - i am happy
+    - i am in good mood
+    - extremely good
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - i am sad
+    - i am disappointed
+    - bad day
+    - too bad
+    - very sad
+    - unhappy
+    - sad
+    - extremly sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: cultivation
+  examples: |
+    - cultivate
+    - cultivating
+    - cultivation
+    - culti
+    - cultivatinggg
+- intent: seed_variety
+  examples: |
+    - IR 20
+    - IR 45
+    - swarna
+    - PR 126
+    - jaya
+- intent: irrigation_method
+  examples: |
+    - surface irrigation
+    - drip irrigation
+    - sprinkler irrigation
+    - sprinkler
+    - surface
+    - drip
+- intent: irrigation_source
+  examples: |
+    - well
+    - canal
+    - public tap
+    - public well
+    - river
+- intent: total_cost
+  examples: |
+    - 1000Rs
+    - 2000Rs
+    - 3000Rs
+    - 4000Rs
+    - 5000Rs
+- intent: planting
+  examples: |
+    - plant
+    - planting
+- intent: sowing
+  examples: |
+    - sow
+    - sowing
+    - sowingg
+- intent: seedsfrom
+  examples: |
+    - krishibhavan
+    - farm
+    - farmers
+    - nursery
+    - friends
+- intent: days
+  examples: |
+    - 1day
+    - 2day
+    - 3day
+    - 4day
+    - 5day
+    - 6day
+    - 7day
+    - 8day
+    - 9day
+    - 10day
+    - 11day
+    - 12day
+    - 13day
+    - 14day
+    - 15day
+    - 16day
+    - 17day
+    - 18day
+    - 19day
+    - 20day
+    - 21day
+    - 22day
+    - 23day
+    - 24day
+    - 25day
+- intent: fertilizers
+  examples: |
+    - npk
+    - NPK
+    - UREA
+    - Urea
+- intent: interval_fertilizer
+  examples: |
+    - 5days
+    - 6days
+    - 7days
+    - 8days
+    - 9days
+    - 10days
+    - 11days
+    - 12days
+    - 13days
+    - 14days
+    - 15days
+    - 16days
+    - 17days
+    - 18days
+    - 19days
+    - 20days
+    - 21days
+    - 22days
+    - 23days
+    - 24days
+    - 25days
+    - 26days
+    - 27days
+    - 28days
+    - 29days
+    - 30days
+- intent: weight_seed
+  examples: |
+    - 1000kg
+    - 2000kg
+    - 3000kg
+    - 4000kg
+    - 5000kg
+    - 6000kg
+    - 7000kg
+    - 8000kg
+    - 9000kg
+    - 10000kg
+- intent: method_seeding
+  examples: |
+    - seeding
+    - broadcasting
+    - seed drilling
+    - stripe seeding
+    - point seeding
+    - point seedings
+    - stripe seedings
+- intent: labour_count
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+- intent: labour_cost
+  examples: |
+    - 100
+    - 101
+    - 102
+    - 103
+    - 104
+    - 105
+    - 106
+    - 107
+    - 108
+    - 109
+    - 110
+    - 111

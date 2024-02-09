@@ -1,0 +1,14 @@
+[
+  {
+    "name": "cost",
+    "pattern": "\\d{3,5}"
+  },
+  {
+    "name": "day",
+    "pattern": "\\d{1,2}"
+  },
+  {
+    "name": "days",
+    "pattern": "\\d{1,2}"
+  }
+]

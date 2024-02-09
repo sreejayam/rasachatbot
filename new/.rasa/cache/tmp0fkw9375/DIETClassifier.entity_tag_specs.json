@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-cost",
+      "2": "I-cost",
+      "3": "L-cost",
+      "4": "U-cost",
+      "5": "B-day",
+      "6": "I-day",
+      "7": "L-day",
+      "8": "U-day",
+      "9": "B-days",
+      "10": "I-days",
+      "11": "L-days",
+      "12": "U-days",
+      "13": "B-email",
+      "14": "I-email",
+      "15": "L-email",
+      "16": "U-email",
+      "17": "B-name",
+      "18": "I-name",
+      "19": "L-name",
+      "20": "U-name",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-cost": 1,
+      "I-cost": 2,
+      "L-cost": 3,
+      "U-cost": 4,
+      "B-day": 5,
+      "I-day": 6,
+      "L-day": 7,
+      "U-day": 8,
+      "B-days": 9,
+      "I-days": 10,
+      "L-days": 11,
+      "U-days": 12,
+      "B-email": 13,
+      "I-email": 14,
+      "L-email": 15,
+      "U-email": 16,
+      "B-name": 17,
+      "I-name": 18,
+      "L-name": 19,
+      "U-name": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]
