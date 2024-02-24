@@ -90,130 +90,109 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-
-- intent: cultivation
-  examples: |
-    -cultivation
-    -cultivating
-
-- intent: seed_variety
-  examples: |
-    -IR 20
-    -IR 64
-    -swarna
-    -PR-126
-- intent: irrigation_method
-  examples: |
-    -surface irrigation
-    -sprinkler irrigation
-    -drip irrigation
-    -surface
-    -sprinkler
-    -drip
-    
-
-- intent: irrigation_source
-  examples: |
-    -well
-    -canals
-    -Tanks
-    -Private canals
-    -tank
-    -canal
-
-- intent: total_cost
-  examples: |
-    -1200RS
-    
-    
-    
-    
-    
-   
-    
-
-
-
-  
-
 - intent: planting
   examples: |
-    -plant
-    -planting
+    - planting
 
 - intent: sowing
   examples: |
-    -sow
-    -sowing
+    - sowing    
 
-- intent: seedsfrom
+- intent: dry_sowing
   examples: |
-    -krishibhavan
-    -farmers
+    - dry_sowing
+    - dry
+- intent: wet_sowing
+  examples: |
+    - wet_sowing
+    - wet
+- intent: broadcasting
+  examples: |
+    - broadcast
+    - broadcasting
+- intent: machanized
+  examples: |
+    - machanized
+- intent: seed_quantity
+  examples: |
+    - 1kg
+    - 2kg
+- intent: seed_cost
+  examples: |
+    - RS 2500
+    - RS 1000
+- intent: labor_hour
+  examples: |
+    - 6 hour
+    - 7 hour
+- intent: labor_cost
+  examples: |
+    - RS 100
+    - RS 150
 
-- intent: days
+- intent: seed_weight
+    - 2kg
+    - 10kg
+- intent: seed_price
   examples: |
-    -1
-    -2
+    - RS 2000
+    - RS 5000
+- intent: machine_rate
+  examples: |
+    - RS 200
+    - RS 250
+- intent: vendor_name
+  examples: |
+    -[sreejaya](vname)
+    -[anu](vname)
+    -[sathvika](vname)
+    -[Arun](vname)
+- intent: vendor_number
+  examples: |
+    -[9544352990](number)
+    -[9656473690](number)
+- intent: sheet_cost
+  examples: |
+    - RS200
+    - RS250
+- intent: total_sheet_cost
+  examples: |
+    - RS2000
+    - RS2500
+- intent: total_seed_cost_planting
+  examples: |
+    - RS2000
+    - RS3000
+
+- intent: sheet
+  examples: |
+    - sheet
     
-
-- intent: fertilizers
+- intent: planting_area
   examples: |
-    -NPK
-    -Urea
-    -npk
-    -urea
-
-- intent: interval_fertilizer
+    - 1 acre
+    - 2 acre
+    
+- intent: field_preparation_cost
   examples: |
-    -12days
-    -30days
-
-- intent: weight_seed
-  examples: |
-    -20000kg
-    -30000kg
-    -40000kg
-- intent: method_seeding
-  examples: |
-    -seeding
-    -broadcasting
-    -seed drilling
-    -stripe seeding
-    -point seeding
+    - RS 2000
+    - RS 3000   
 - intent: labour_count
   examples: |
-    - 10 no
-    - 20 no
-
-- intent: labour_cost
+    - 1 no's
+    - 2 no's
+- intent: male_labour_cost
   examples: |
-    - 150 rs
-    - 250 rs
-
-
-- intent: seeding_days
+    - RS650
+    - RS800
+- intent: female_labour_cost
   examples: |
-    -one
-    -two
-    
-
-- intent: make_it_your_own
+    - RS500
+    - RS550
+- intent: total_labour_cost
   examples: |
-    -make_it_your_own
-    -make it
-
-- intent: buying
-  examples: |
-    -buying
-    -buy
-       
-
-- intent: fields
-  examples: |
-    -pullan kandam
-    -puncha kandam
-
+    - RS2000
+    - RS2500
 
 
 ######################################sql############################################################3

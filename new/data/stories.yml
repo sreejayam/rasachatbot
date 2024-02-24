@@ -29,161 +29,247 @@ stories:
 #  - intent: show_all_data
 #  - action: action_show_all_data
 
+
+
+
+
+#- story: call chatgpt and show answer
+#  steps:
+#  - intent: what_is_x
+#  - action: open_ai_gpt
+
 ###################################################################################################################
 
-#
-#
-#- story: sad path 1
-#  steps:
-#  - intent: greet
-#  - action: utter_greet
-#  - intent: mood_unhappy
-#  - action: utter_cheer_up
-#  - action: utter_did_that_help
-#  - intent: affirm
-#  - action: utter_happy
-#
-#- story: sad path 2
-#  steps:
-#  - intent: greet
-#  - action: utter_greet
-#  - intent: mood_unhappy
-#  - action: utter_cheer_up
-#  - action: utter_did_that_help
-##  - intent: deny
-##  - action: utter_goodbye
-#
-#- story: cultivation path 1
-#  steps:
-#  - intent: greet
-#  - action: utter_greet
-#  - intent: cultivation
-#  - action: utter_cultivation
-#  - intent: deny
-#  - action: utter_no
 
-- story: cultivation path 3
+- story:  path 1
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: cultivation
-  - action: utter_cultivation
   - intent: affirm
-  - action: utter_yes
-  - intent: seed_variety
-  - action: utter_variety
-  - intent: irrigation_method
-  - action: utter_method
-  - intent: irrigation_source
-  - action: utter_source
+  - action: utter_register
+  - intent: deny
+  - action: utter_registration_deny
 
-  - intent: total_cost
+- story:  path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: deny
+  - action: utter_farm_register_deny
 
+- story:  path 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: deny
+  - action: utter_crop_register_deny
+- story:  path 4 dry sowing broadcasting
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: affirm
   - action: utter_planting_sowing
   - intent: sowing
-  - action: utter_sowing
-  - intent: seedsfrom
-
-  - action: utter_days
-  - intent: days
-  - action: utter_fertilizer
-  - intent: fertilizers
-  - action: utter_interval_fertilizer
-  - intent: interval_fertilizer
-  - action: utter_weight_seed
-  - intent: weight_seed
-  - action: utter_method_seeding
-  - intent: method_seeding
-  - action: utter_labour_men
-  - intent: labour_count
-  - action: utter_labour_woman
-  - intent: labour_count
-  - action: utter_labourcost_men
-  - intent: labour_cost
-  - action: utter_labourcost_woman
-  - intent: labour_cost
+  - action: utter_dry_wet_sowing
+  - intent: dry_sowing
+  - action: utter_sowing_method
+  - intent: broadcasting
+  - action: utter_seed_quantity
+  - intent: seed_quantity
   - action: utter_seed_cost
-  - intent: labour_cost
-  - action: utter_total_cost_seeding
-  - intent: total_cost
-  - action: utter_days_seeding
-  - intent: seeding_days
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#- story: cultivation path 2
-#  steps:
-#  - intent: greet
-#  - action: utter_greet
-#  - intent: cultivation
-#  - action: utter_cultivation
-#  - intent: affirm
-#  - action: utter_yes
-#  - intent: seed_variety
-#  - action: utter_variety
-#  - intent: irrigation_method
-#  - action: utter_method
-#  - intent: irrigation_source
-#  - action: utter_source
-#  - intent: total_cost
-#  - action: utter_planting_sowing
-#  - intent: planting
-#  - action: utter_planting
-#
-#
-#
-#- story: cultivation path 5
-#  steps:
-#  - intent: greet
-#  - action: utter_greet
-#  - intent: cultivation
-#  - action: utter_cultivation
-#  - intent: affirm
-#  - action: utter_yes
-#  - intent: seed_variety
-#  - action: utter_variety
-#  - intent: irrigation_method
-#  - action: utter_method
-#  - intent: irrigation_source
-#  - action: utter_source
-#  - intent: total_cost
-#  - action: utter_planting_sowing
-#  - intent: planting
-#  - action: utter_planting
-#  - intent: make_it_your_own
-#  - action: utter_make_it_your_own
-#  - intent: affirm
-#  - action: utter_fields
-#  - intent: fields
-#  - action: utter_weight_seed
-#  - intent: weight_seed
-#  - action: utter_sowing
-#  - intent: seedsfrom
-#  - action: utter_seed_cost
-#  - intent: total_cost
-#  - action: utter_labour_men
-#  - intent: labour_count
-#  - action: utter_labour_woman
-#  - intent: labour_count
-#  - action: utter_labourcost_men
-#  - intent: labour_cost
-#  - action: utter_labourcost_woman
-#  - intent: labour_cost
-#  - action: utter_fertilizer
-#  - intent: fertilizers
-#  - action: utter_interval_fertilizer
-#  - intent: interval_fertilizer
-#  - action: utter_total_cost_planting
-#  - intent: total_cost
+  - intent: seed_cost
+  - action: utter_male_labor_hour
+  - intent: labor_hour
+  - action: utter_female_labor_hour
+  - intent: labor_hour
+  - action: utter_male_labor_cost
+  - intent: labor_cost
+  - action: utter_female_labor_cost
+  - intent: labor_cost
 
 
 
 
+- story:  path 5    wet sowing broadcasting
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: affirm
+  - action: utter_planting_sowing
+  - intent: sowing
+  - action: utter_dry_wet_sowing
+  - intent: wet_sowing
+  - action: utter_sowing_method
+  - intent: broadcasting
+  - action: utter_seed_quantity
+  - intent: seed_quantity
+  - action: utter_seed_cost
+  - intent: seed_cost
+  - action: utter_male_labor_hour
+  - intent: labor_hour
+  - action: utter_female_labor_hour
+  - intent: labor_hour
+  - action: utter_male_labor_cost
+  - intent: labor_cost
+  - action: utter_female_labor_cost
+  - intent: labor_cost
+- story:  path 5 dry sowing machanized
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: affirm
+  - action: utter_planting_sowing
+  - intent: sowing
+  - action: utter_dry_wet_sowing
+  - intent: dry_sowing
+  - action: utter_sowing_method
+  - intent: machanized
+  - action: utter_seed_weight
+  - intent: seed_weight
+  - action: utter_seed_price
+  - intent: seed_price
+  - action: utter_machine_rate
+  - intent: machine_rate
+  - action: utter_male_labor_hour
+  - intent: labor_hour
+  - action: utter_female_labor_hour
+  - intent: labor_hour
+  - action: utter_male_labor_cost
+  - intent: labor_cost
+  - action: utter_female_labor_cost
+  - intent: labor_cost
+
+
+- story:  path 5 wet sowing machanized
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: affirm
+  - action: utter_planting_sowing
+  - intent: sowing
+  - action: utter_dry_wet_sowing
+  - intent: wet_sowing
+  - action: utter_sowing_method
+  - intent: machanized
+  - action: utter_seed_weight
+  - intent: seed_weight
+  - action: utter_seed_price
+  - intent: seed_price
+  - action: utter_machine_rate
+  - intent: machine_rate
+  - action: utter_male_labor_hour
+  - intent: labor_hour
+  - action: utter_female_labor_hour
+  - intent: labor_hour
+  - action: utter_male_labor_cost
+  - intent: labor_cost
+  - action: utter_female_labor_cost
+  - intent: labor_cost
+- story:  path 5 planting ready to plant seedlings
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: affirm
+  - action: utter_planting_sowing
+  - intent: planting
+  - action: utter_planting
+  - intent: affirm
+  - action: utter_vendor_name
+  - intent: vendor_name
+  - action: utter_vendor_number
+  - intent: vendor_number
+  - action: utter_sheet_number
+  - intent: sheet_number
+  - action: utter_sheet_cost
+  - intent: sheet_cost
+  - action: utter_total_sheet_cost
+  - intent: total_sheet_cost
+  - action: utter_seed_cost_planting
+  - intent: seed_cost_planting
+  - action: utter_total_seed_cost_planting
+  - intent: total_seed_cost_planting
+
+- story:  path 5 planting not ready to plant seedlings
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: affirm
+  - action: utter_planting_sowing
+  - intent: planting
+  - action: utter_planting
+  - intent: deny
+  - action: utter_nursery_type
+  - intent: sheet
+  - action: utter_seed_weight
+  - intent: seed_weight
+  - action: utter_seed_cost_planting
+  - intent: seed_cost_planting
+  - action: utter_total_seed_cost_planting
+  - intent: total_seed_cost_planting
+  - action: utter_planting_area
+  - intent: planting_area
+  - action: utter_field_prepration_cost
+  - intent: field_preparation_cost
+  - action: utter_sheet_number
+  - intent: sheet_number
+  - action: utter_sheet_cost
+  - intent: sheet_cost
+  - action: utter_total_sheet_cost
+  - intent: total_sheet_cost
+  - action: utter_male_labour
+  - intent: labour_count
+  - action: utter_female_labour
+  - intent: labour_count
+  - action: utter_male_labour_cost
+  - intent: male_labour_cost
+  - action: utter_female_labour_cost
+  - intent: female_labour_cost
+  - action: utter_total_labour_cost
+  - intent: total_labour_cost
 

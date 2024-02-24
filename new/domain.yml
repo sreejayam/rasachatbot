@@ -8,36 +8,62 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - cultivation
-  - seed_variety
-  - irrigation_method
-  - irrigation_source
-  - total_cost
   - planting
   - sowing
-  - seedsfrom
-  - days
-  - fertilizers
-  - interval_fertilizer
-  - weight_seed
-  - method_seeding
-  - seeding_days
+  - dry_sowing
+  - wet_sowing
+  - broadcasting
+  - machanized
+  - seed_quantity
+  - seed_cost
+  - labor_hour
+  - labor_cost
+  - seed_weight
+  - seed_price
+  - machine_rate
+  - vendor_name
+  - vendor_number
+  - sheet_number
+  - sheet_cost
+  - total_sheet_cost
+  - seed_cost_planting
+  - total_seed_cost_planting
+  - sheet
+  - sheet_quantity
+  - planting_area
+  - field_preparation_cost
   - labour_count
-  - labour_cost
-  - make_it_your_own
-  - buying
-  - fields
+  - male_labour_cost
+  - female_labour_cost
+  - total_labour_cost
+
+
+
+
+
+
+
+
+
+
+
+ #####################################sql ################################################
   - name
   - crop_stage
   - provide_details
   - provide_name
   - provide_email
   - show_all_data
+  - what_is_x
 
-#############################sql####################################################################
+
 entities:
   - name
   - email
+  - object_entity
+
+  - vendor_name
+  - vendor_number
 
 
 slots:
@@ -51,6 +77,16 @@ slots:
     mappings:
       - type: from_entity
         entity: email
+  vname:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: vname
+  number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number
 
 
 
@@ -59,96 +95,92 @@ slots:
 
 
 ############################################################################################################
+
 responses:
-  utter_greet:
-  - text: "Hey! What is your current crop stage?"
-
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_cultivation:
-  - text: "Is your land ready for cultivation"
-
   utter_goodbye:
-  - text: "Bye"
+    - text: "good_bye"
+  utter_greet:
+  - text: "Hi!  I am Simplify Agri, your farming data collector. I'm here to gather important information to help optimize your farming operations. Are you ready to provide some valuable insights about your farm? Let's get started with a few questions, shall we?"
 
-  utter_no:
-  - text: "what you done today?"
 
-  utter_yes:
-  - text: "what is the seed variety?"
-    image: "https://www.yabibo.com/wp-content/uploads/2019/06/4-Important-Types.jpg"
+  utter_register:
+  - text: "Is the Farmer registered?"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-  utter_variety:
-  - text: "which irrigation method are you using?"
 
-  utter_method:
-  - text: "which irrigation source are you using?"
-  utter_source:
-  - text: "what is the total cost of irrigation?"
+  utter_registration_deny:
+  - text: "Please go through the Farmer Registration page.Thank you"
+
+  utter_farm_register:
+  - text: "Before we proceed, may I inquire: Are the farms registered?"
+
+  utter_farm_register_deny:
+    - text: "Please go through the Farm Registration page.Thank you"
+  utter_crop_register:
+    - text: "Could you kindly confirm: Are the crops on your farm registered?"
+  utter_crop_register_deny:
+    - text: "Please go through the Crop Registration page.Thank you"
   utter_planting_sowing:
-  - text: "What do you prefer:"
-    buttons:
-      - title: "planting"
-        payload: "/planting"
-      - title: "sowing"
-        payload: "/sowing"
-  utter_sowing:
-  - text: "where did you buy the seeds?"
-  utter_days:
-  - text: "After how many days fertilizers should be used?"
-  utter_fertilizer:
-  - text: "Which all fertilizers should be used?"
-  utter_interval_fertilizer:
-  - text: "What is the interval between applying fertilizers(in days)?"
-  utter_planting:
-  - text: "Do you buy the seeds or make it your own?"
-#  buttons:
-#    - title: "make_it_your_own"
-#      payload: "/make_it_your_own"
-#    - title: "buying"
-#      payload: "/buying"
-  utter_weight_seed:
-    - text: "weight of the seed in kg?"
-  utter_method_seeding:
-    - text: "method of seeding?"
-  utter_labour_men:
-    - text: "no of men labours?"
-  utter_labour_woman:
-    - text: "no of woman labours?"
-  utter_labourcost_men:
-    - text: "what is the labour cost for men?"
-  utter_labourcost_woman:
-    - text: "what is the labour cost for woman?"
+    - text: "Could you specify whether sowing or planting is typically done for your paddy crops?"
+  utter_dry_wet_sowing:
+    - text: "Do you usually go for dry sowing or wet sowing methods?"
+  utter_sowing_method:
+    - text: "Do you lean towards broadcasting or mechanized methods?"
+  utter_seed_quantity:
+    - text: "Hey! How many bags or kilograms of seed do you usually toss into the mix for your farming?"
   utter_seed_cost:
-    - text: "what is the cost of seed per kg?"
-  utter_total_cost_seeding:
-    - text: "what is the cost seeding?"
-  utter_total_cost_planting:
-    - text: "what is the cost planting?"
-  utter_days_seeding:
-    - text: "how many days required to complete seeding?"
-  utter_make_it_your_own:
-    - text: "did you put the seed to sprout?"
+    - text: "Additionally, could you specify the cost associated with the seed used?"
+  utter_male_labor_hour:
+    - text: "Could you provide an estimate of the male labor hours involved in your farming activities?"
+  utter_female_labor_hour:
+    - text: "Likewise, how about the female labour hours?"
+  utter_male_labor_cost:
+    - text: "What is the average cost per hour for male labour?"
+  utter_female_labor_cost:
+    - text: "And for female labour?"
+  utter_seed_weight:
+    - text: "Hey there! How many bags or kilograms of seed do you usually throw into the mix?"
+  utter_seed_price:
+    - text: "what's the price tag per unit?"
+  utter_machine_rate:
+    - text: "What's the going rate for running those machines per hour?"
+  utter_planting:
+    - text: "Are you ready to plant your seedlings?"
+  utter_vendor_name:
+    - text: "Great! Can you tell me the name of the vendor where you bought the seedlings?"
+  utter_vendor_number:
+    - text: " Nice choice! Could you provide the contact number of the vendor?"
+  utter_sheet_number:
+    - text: " Thanks! How many sheets did you used"
+  utter_sheet_cost:
+    - text: " Interesting! What is the cost of 1 sheet?"
+  utter_total_sheet_cost:
+    - text: "Got it! So, what was the total cost you spent on the sheets?"
+  utter_seed_cost_planting:
+    - text: "Impressive! How about the cost of the seed per kilogram?"
+  utter_total_seed_cost_planting:
+    - text: " Alright! What's the total cost of the seed?"
+  utter_nursery_type:
+    - text: " Alright, let's choose a nursery type for planting seedlings?choose sheet,open field or Tray seeding?"
+
+  utter_planting_area:
+    - text: " Moving on, what's the total planting area (acres)?"
+  utter_field_prepration_cost:
+    - text: " Good! How much is the field preparation cost?"
+  utter_male_labour:
+    - text: " No of Male labours ?"
+  utter_female_labour:
+    - text: " No of female labours ?"
+  utter_male_labour_cost:
+    - text: " labour cost for male?"
+  utter_female_labour_cost:
+    - text: " labour cost for female ?"
+  utter_total_labour_cost:
+    - text: " Excellent! What's the total labour cost?"
 
 
-  utter_fields:
-    - text: "fields of which seed put to sprout"
 
 
-
-
-
+########################################sql######################################################
 
 
 
@@ -162,11 +194,12 @@ responses:
 actions:
   - action_save_data
   - action_show_all_data
-  - action_extract_cost_entity     #for slot
+  - open_ai_gpt
+#  - action_extract_cost_entity     #for slot
 
 
 
-
+######################################################################################################
 
 
 

@@ -135,25 +135,60 @@ class ExtractCostEntity(Action):
 #
 #         return []
 
-
-import requests
+import openai
 from rasa_sdk import Action, Tracker
+from typing import Any, Text, Dict, List
 from rasa_sdk.executor import CollectingDispatcher
 
-class ActionChatGPT(Action):
-    def name(self):
-        return "action_chatgpt_response"
+CHAT_GPT_CUSTOM_ACTION_ = 'ChatGPT (custom_action): '
 
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
-        # Extract user message from Rasa tracker
-        user_message = tracker.latest_message.get('text')
+# To reduce configuration file parsing time overhead
+OPENAI_ENGINE_VERSION = "text-davinci-003"
+OPENAPI_API_KEY = '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'
+MAX_TOKENS = 1024
+TEXT_PROPERTY_NAME = 'text'
+OPEN_AI_GPT_METHOD_NAME = "gpt_3.5_turbo"
+VERY_FIRST = 0
+TEMPERATURE_CHOICE = 0.5
+STOP_AT = None
+NUMBER_OF_QUERY = 1
 
-        # Make a request to ChatGPT API
-        chatgpt_api_url = 'http://127.0.0.1:8000/chatgpt/'  # Update with your actual API endpoint
-        response = requests.post(chatgpt_api_url, json={"user_message": user_message})
-        chatgpt_response = response.json().get('chatgpt_response', 'Sorry, I could not generate a response.')
 
-        # Send the ChatGPT response back to the user in Rasa
-        dispatcher.utter_message(text=chatgpt_response)
+def ask_chatgpt(user_message_text):
+    # OpenAI API Key
+    openai.api_key = OPENAPI_API_KEY
+
+    # Use OpenAI API to get the response for the given user text and intent
+    response = openai.Completion.create(
+        engine=OPENAI_ENGINE_VERSION,
+        prompt=user_message_text,
+        max_tokens=MAX_TOKENS,
+        n=NUMBER_OF_QUERY,
+        stop=STOP_AT,
+        temperature=TEMPERATURE_CHOICE,
+    ).choices[VERY_FIRST].text
+
+    # Return the response from OpenAI
+    return response
+
+
+class OpenAiGpt(Action):
+
+    def name(self) -> Text:
+        return OPEN_AI_GPT_METHOD_NAME
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Get the latest user text
+        user_text = tracker.latest_message.get(TEXT_PROPERTY_NAME)
+
+        prompt = self.buildprompt(user_text)
+        # Dispatch the response from OpenAI to the user
+        dispatcher.utter_message(CHAT_GPT_CUSTOM_ACTION_ + ask_chatgpt(prompt))
 
         return []
+
+    @staticmethod
+    def buildprompt(user_text):
+        return f"The user said: {user_text}\nChatGPT: "
