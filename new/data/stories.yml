@@ -273,3 +273,87 @@ stories:
   - action: utter_total_labour_cost
   - intent: total_labour_cost
 
+- story:  path 6 planting not ready to plant seedlings
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: affirm
+  - action: utter_planting_sowing
+  - intent: planting
+  - action: utter_planting
+  - intent: deny
+  - action: utter_nursery_type
+  - intent: open_field
+  - action: utter_open_field_seedweight
+  - intent: open_field_seedweight
+  - action: utter_open_field_seedcost
+  - intent: open_field_seedcost
+  - action: utter_open_field_seed_totalcost
+  - intent: open_field_seed_totalcost
+  - action: utter_open_field_totalplanting_area
+  - intent: open_field_totalplanting_area
+  - action: utter_open_field_field_prep_cost
+  - intent: open_field_field_prep_cost
+  - action: utter_open_field_male_labour_count
+  - intent: open_field_male_labour_count
+  - action: utter_open_field_female_labour_count
+  - intent: open_field_female_labour_count
+  - action: utter_open_field_male_labour_cost
+  - intent: open_field_male_labour_cost
+  - action: utter_open_field_female_labour_cost
+  - intent: open_field_female_labour_cost
+  - action: utter_open_field_total_labour_cost
+  - intent: open_field_total_labour_cost
+- story:  path 7 planting not ready to plant seedlings
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: affirm
+  - action: utter_planting_sowing
+  - intent: planting
+  - action: utter_planting
+  - intent: deny
+  - action: utter_nursery_type
+  - intent: tray_seeding
+  - action: utter_tray_seeding_seedweight
+  - intent: tray_seeding_seedweight
+  - action: utter_tray_seeding_seedcost
+  - intent: tray_seeding_seedcost
+  - action: utter_tray_seeding_seed_totalcost
+  - intent: tray_seeding_seed_totalcost
+  - action: utter_tray_seeding_totalplanting_area
+  - intent: tray_seeding_totalplanting_area
+  - action: utter_tray_seeding_field_prep_cost
+  - intent: tray_seeding_field_prep_cost
+  - action: utter_no_of_tray
+  - intent: no_of_tray
+  - action: utter_medium_quantity
+  - intent: medium_quantity
+  - action: utter_medium_cost
+  - intent: medium_cost
+  - action: utter_tray_seeding_male_labour_count
+  - intent: tray_seeding_male_labour_count
+  - action: utter_tray_seeding_female_labour_count
+  - intent: tray_seeding_female_labour_count
+  - action: utter_tray_seeding_male_labour_cost
+  - intent: tray_seeding_male_labour_cost
+  - action: utter_tray_seeding_female_labour_cost
+  - intent: tray_seeding_female_labour_cost
+  - action: utter_tray_seeding_total_labour_cost
+  - intent: tray_seeding_total_labour_cost
+  - action: utter_tray_seeding_machine_hour
+  - intent: tray_seeding_machine_hour
+  - action: utter_tray_seeding_machine_cost
+  - intent: tray_seeding_machine_cost

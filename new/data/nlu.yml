@@ -100,11 +100,11 @@ nlu:
 
 - intent: dry_sowing
   examples: |
-    - dry_sowing
+    - dry sowing
     - dry
 - intent: wet_sowing
   examples: |
-    - wet_sowing
+    - wet sowing
     - wet
 - intent: broadcasting
   examples: |
@@ -119,12 +119,12 @@ nlu:
     - 2kg
 - intent: seed_cost
   examples: |
-    - RS 2500
-    - RS 1000
+    - RS2500
+    - RS1000
 - intent: labor_hour
   examples: |
-    - 6 hour
-    - 7 hour
+    - 6hour
+    - 7hour
 - intent: labor_cost
   examples: |
     - RS 100
@@ -135,12 +135,12 @@ nlu:
     - 10kg
 - intent: seed_price
   examples: |
-    - RS 2000
-    - RS 5000
+    - RS2000
+    - RS5000
 - intent: machine_rate
   examples: |
-    - RS 200
-    - RS 250
+    - RS200
+    - RS250
 - intent: vendor_name
   examples: |
     -[sreejaya](vname)
@@ -167,16 +167,16 @@ nlu:
 - intent: sheet
   examples: |
     - sheet
-    
+
 - intent: planting_area
   examples: |
     - 1 acre
     - 2 acre
-    
+
 - intent: field_preparation_cost
   examples: |
     - RS 2000
-    - RS 3000   
+    - RS 3000
 - intent: labour_count
   examples: |
     - 1 no's
@@ -193,8 +193,115 @@ nlu:
   examples: |
     - RS2000
     - RS2500
-
-
+- intent: open_field
+  examples: |
+    - openfield
+    - open
+- intent: open_field_seedweight
+  examples: |
+    - 100kg
+    - 50kg
+- intent: open_field_seedcost
+  examples: |
+    - Rs.105
+    - Rs.110
+- intent: open_field_seed_totalcost
+  examples: |
+    - Rs.1250
+    - Rs.1350
+- intent: open_field_totalplanting_area
+  examples: |
+    - 25acres
+    - 1acres
+- intent: open_field_field_prep_cost
+  examples: |
+    - Rs.4300
+    - Rs.5200
+- intent: open_field_male_labour_count
+  examples: |
+    - 4nos
+    - 5nos
+- intent: open_field_female_labour_count
+  examples: |
+    - 8nos
+    - 7nos
+- intent: open_field_male_labour_cost
+  examples: |
+    - Rs.750
+    - Rs.815
+- intent: open_field_female_labour_cost
+  examples: |
+    - Rs.375
+    - Rs.350
+- intent: open_field_total_labour_cost
+  examples: |
+    - Rs.2375
+    - Rs.4350
+- intent: tray_seeding
+  examples: |
+    - tray-seeding
+    - tray seeding
+    - tray
+- intent: tray_seeding_seedweight
+  examples: |
+    - 10kg
+    - 50kg
+- intent: tray_seeding_seedcost
+  examples: |
+    - Rs.150
+    - Rs.120
+- intent: tray_seeding_seed_totalcost
+  examples: |
+    - Rs.1150
+    - Rs.1050
+- intent: tray_seeding_totalplanting_area
+  examples: |
+    - 2acres
+    - 4acres
+- intent: tray_seeding_field_prep_cost
+  examples: |
+    - Rs.3300
+    - Rs.5100
+- intent: no_of_tray
+  examples: |
+    - 40
+    - 120
+- intent: medium_quantity
+  examples: |
+    - 40nos
+    - 120nos
+- intent: medium_cost
+  examples: |
+    - Rs.115
+    - Rs.105
+- intent: tray_seeding_male_labour_count
+  examples: |
+    - 3nos
+    - 1nos
+- intent: tray_seeding_female_labour_count
+  examples: |
+    - 2nos
+    - 10nos
+- intent: tray_seeding_male_labour_cost
+  examples: |
+    - Rs.750
+    - Rs.815
+- intent: tray_seeding_female_labour_cost
+  examples: |
+    - Rs.315
+    - Rs.550
+- intent: tray_seeding_total_labour_cost
+  examples: |
+    - Rs.2305
+    - Rs.4300
+- intent: tray_seeding_machine_hour
+  examples: |
+    - 2hr
+    - 3hr
+- intent: tray_seeding_machine_cost
+  examples: |
+    - Rs.2000
+    - Rs.4100
 ######################################sql############################################################3
 
 - intent: provide_details
@@ -222,14 +329,11 @@ nlu:
     -[Arun@gmail.com](email)
 
 
-    
+
 - intent: show_all_data
   examples: |
     -what are the data in the database
     -what are the data in the database
     -dispaly the records
- 
+
 ##############################################################################################################
-  
-    
-  

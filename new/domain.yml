@@ -36,6 +36,33 @@ intents:
   - male_labour_cost
   - female_labour_cost
   - total_labour_cost
+  - open_field
+  - open_field_seedweight
+  - open_field_seedcost
+  - open_field_seed_totalcost
+  - open_field_totalplanting_area
+  - open_field_field_prep_cost
+  - open_field_male_labour_count
+  - open_field_female_labour_count
+  - open_field_male_labour_cost
+  - open_field_female_labour_cost
+  - open_field_total_labour_cost
+  - tray_seeding
+  - tray_seeding_seedweight
+  - tray_seeding_seedcost
+  - tray_seeding_seed_totalcost
+  - tray_seeding_totalplanting_area
+  - tray_seeding_field_prep_cost
+  - no_of_tray
+  - medium_quantity
+  - medium_cost
+  - tray_seeding_male_labour_count
+  - tray_seeding_female_labour_count
+  - tray_seeding_male_labour_cost
+  - tray_seeding_female_labour_cost
+  - tray_seeding_total_labour_cost
+  - tray_seeding_machine_hour
+  - tray_seeding_machine_cost
 
 
 
@@ -176,7 +203,56 @@ responses:
     - text: " labour cost for female ?"
   utter_total_labour_cost:
     - text: " Excellent! What's the total labour cost?"
-
+  utter_open_field_seedweight:
+    - text: " Total weight of seed in Kg?"
+  utter_open_field_seedcost:
+    - text: " What's the cost of seed per kg?"
+  utter_open_field_seed_totalcost:
+    - text: " Total cost of seed?"
+  utter_open_field_totalplanting_area:
+    - text: "Moving on, what's the total planting area in acre?"
+  utter_open_field_field_prep_cost:
+    - text: " Good! How much is the field preparation cost?"
+  utter_open_field_male_labour_count:
+    - text: " No of Male labours ?"
+  utter_open_field_female_labour_count:
+    - text: " No of female labours ?"
+  utter_open_field_male_labour_cost:
+    - text: "labour cost for male labour? "
+  utter_open_field_female_labour_cost:
+    - text: "labour cost for female labour? "
+  utter_open_field_total_labour_cost:
+    - text: "Total labour cost? "
+  utter_tray_seeding_seedweight:
+    - text: "Totalweight of seed in Kg?"
+  utter_tray_seeding_seedcost:
+    - text: "What's the cost of seed per kg?"
+  utter_tray_seeding_seed_totalcost:
+    - text: "Total cost of seed?"
+  utter_tray_seeding_totalplanting_area:
+     - text: "Moving on, what's the total planting area in acre?"
+  utter_tray_seeding_field_prep_cost:
+     - text: "How much Field preparation cost?"
+  utter_no_of_tray:
+     - text: "Now, Number of trays?"
+  utter_medium_quantity:
+     - text: "Medium quantity in kg?"
+  utter_medium_cost:
+     - text: "Medium cost?"
+  utter_tray_seeding_male_labour_count:
+     - text: "No of Male labours?"
+  utter_tray_seeding_female_labour_count:
+     - text: "No of female labours?"
+  utter_tray_seeding_male_labour_cost:
+     - text: "labour cost for male labour?"
+  utter_tray_seeding_female_labour_cost:
+     - text: "labour cost for female labour?"
+  utter_tray_seeding_total_labour_cost:
+     - text: "Total labour cost?"
+  utter_tray_seeding_machine_hour:
+     - text: "Machine working hours?"
+  utter_tray_seeding_machine_cost:
+     - text: "Total machine cost?"
 
 
 
