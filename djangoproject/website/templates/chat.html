@@ -1,94 +1,57 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simplifyagri Chatbot</title>
+    <title>chatbot🌾</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h2 {
-            color: #333;
-            padding: 10px;
-        }
-
-        #chat-container {
-            max-width: 600px;
-            width: 100%;
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        #chat-messages {
-            padding: 20px;
-            overflow-y: scroll;
-            max-height: 300px;
-        }
-
-        #chat-input {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: #f5f5f5;
-        }
-
-        #user-input {
-            flex-grow: 1;
-            margin-right: 10px;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        #send-button {
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+        /* Your existing CSS styles can be placed here */
     </style>
 </head>
+
 <body>
 
-<h2>Simplifyagri Chatbot</h2>
+    <div class="container">
+        <h2>Chatbot 🌾</h2>
 
-<div id="chat-container">
-    <div id="chat-messages">
-        {% for message in messages %}
-            <p>{{ message.content }}</p>
-            {% if message.show_buttons %}
-                {% if message.response == 'utter_planting_sowing' %}
-                    <!-- Buttons for Planting and Sowing -->
-                    <button type="submit" name="button" value="/planting">Planting</button>
-                    <button type="submit" name="button" value="/sowing">Sowing</button>
-                {% endif %}
-            {% endif %}
-        {% endfor %}
-    </div>
-    <div id="chat-input">
-        <form method="post" action="">
-            {% csrf_token %}
-            <input type="text" id="user-input" name="message" placeholder="Type your message...">
-            <button type="submit" id="send-button">Send</button>
-        </form>
-    </div>
-</div>
 
+
+        <div id="chat-container">
+              <!-- Google Translate Element -->
+        <div id="google_translate_element"></div>
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script>
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    { pageLanguage: 'en' },
+                    'google_translate_element'
+                );
+            }
+        </script>
+            <div id="chat-messages">
+                {% for message in messages %}
+                <p>{{ message.content }}</p>
+
+                {% endfor %}
+            </div>
+            <div id="chat-input">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="text" id="user-input" name="message" placeholder="Type your message..." class="form-control">
+                    <button type="submit" id="send-button" class="btn btn-danger">Send</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

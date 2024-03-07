@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'accounts',
     'knox',
-    'chatgpt_app'
+
 
 ]
 

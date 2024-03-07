@@ -36,7 +36,7 @@ class CustomUser(AbstractBaseUser):
     first_name = models.CharField(max_length=255, null=True, blank=True)
     last_name = models.CharField(max_length=255, null=True, blank=True)
     phone_number = models.CharField(max_length=15, unique=True)
-    email=models.EmailField()
+    email=models.EmailField(null=True, blank=True)
     password = models.CharField(max_length=128, null=True)
     age = models.CharField(max_length=10, null=True)
     gender = models.SmallIntegerField(choices=GENDER_CHOICES)

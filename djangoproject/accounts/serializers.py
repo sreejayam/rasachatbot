@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ('id', 'email', 'first_name', 'last_name', 'gender')
+        fields = ('id', 'first_name', 'last_name', 'gender','phone_number')
 
 
 class CreateUserSerializer(serializers.ModelSerializer):
@@ -18,9 +18,9 @@ class CreateUserSerializer(serializers.ModelSerializer):
         }
 
     def validate(self, attrs):
-        email = attrs.get('email', '').strip().lower()
-        if CustomUser.objects.filter(email=email).exists():
-            raise serializers.ValidationError('User with this email id already exists.')
+        phone_number = attrs.get('phone_number', '').strip().lower()
+        if CustomUser.objects.filter(phone_number=phone_number).exists():
+            raise serializers.ValidationError('User with this phone number already exists.')
         return attrs
 
     def create(self, validated_data):
@@ -31,7 +31,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
 class UpdateUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ('first_name', 'last_name', 'email', 'gender', 'password')
+        fields = ('first_name', 'last_name', 'phone_number', 'gender', 'password')
 
     def update(self, instance, validated_data):
         password = validated_data.pop('password')
@@ -42,20 +42,21 @@ class UpdateUserSerializer(serializers.ModelSerializer):
 
 
 class LoginSerializer(serializers.Serializer):
-    email = serializers.EmailField()
+    phone_number = serializers.CharField()  # Replace with serializers.CharField if needed
     password = serializers.CharField(style={'input_type': 'password'}, trim_whitespace=False)
 
     def validate(self, attrs):
-        email = attrs.get('email').lower()
+        phone_number = attrs.get('phone_number')  # Replace with your actual field name
         password = attrs.get('password')
 
-        if not email or not password:
-            raise serializers.ValidationError("Please give both email and password.")
+        if not phone_number or not password:
+            raise serializers.ValidationError("Please provide both phone number and password.")
 
-        if not CustomUser.objects.filter(email=email).exists():
-            raise serializers.ValidationError('Email does not exist.')
+        # Modify this part based on your actual model and field name
+        if not CustomUser.objects.filter(phone_number=phone_number).exists():
+            raise serializers.ValidationError('Phone number does not exist.')
 
-        user = authenticate(request=self.context.get('request'), email=email,
+        user = authenticate(request=self.context.get('request'), phone_number=phone_number,
                             password=password)
         if not user:
             raise serializers.ValidationError("Wrong Credentials.")
