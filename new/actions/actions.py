@@ -96,45 +96,25 @@ class ActionShowAllData(Action):
 
 
 #########################################################################
-class ExtractCostEntity(Action):
-
+class ActionEnterPhoneNumber(Action):
     def name(self) -> Text:
-        return "action_extract_cost_entity"
+        return "action_enter_phone_number"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Extract the phone number entity from the tracker
+        phone_number = tracker.get_slot("number")
 
-        cost_entity=next(tracker.get_latest_entity_values('cost'),None)
-
-        if cost_entity:
-            dispatcher.utter_message(text=f"planting/sowing ?")
+        # Validate if the phone number is extracted
+        if phone_number:
+            dispatcher.utter_message(f"Great! You've entered the phone number: {phone_number}. How many sheets did you used")
         else:
-            dispatcher.utter_message(text="cost is too high")
-
+            dispatcher.utter_message("I'm sorry, but I couldn't detect a valid phone number.")
 
         return []
 
-
-# class ExtractCostEntity(Action):
-#
-#     def name(self) -> Text:
-#         return "action_extract_cost_entity"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         cost_entity=next(tracker.get_latest_entity_values('cost'),None)
-#
-#         if cost_entity:
-#             dispatcher.utter_message(text=f"planting/sowing ?")
-#         else:
-#             dispatcher.utter_message(text="cost is too high")
-#
-#
-#         return []
-
+#################################################
 import openai
 from rasa_sdk import Action, Tracker
 from typing import Any, Text, Dict, List
@@ -143,11 +123,11 @@ from rasa_sdk.executor import CollectingDispatcher
 CHAT_GPT_CUSTOM_ACTION_ = 'ChatGPT (custom_action): '
 
 # To reduce configuration file parsing time overhead
-OPENAI_ENGINE_VERSION = "text-davinci-003"
-OPENAPI_API_KEY = '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'
+OPENAI_ENGINE_VERSION = "gpt-3.5-turbo-0125"
+OPENAPI_API_KEY = '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'
 MAX_TOKENS = 1024
 TEXT_PROPERTY_NAME = 'text'
-OPEN_AI_GPT_METHOD_NAME = "gpt_3.5_turbo"
+OPEN_AI_GPT_METHOD_NAME = "open_ai_gpt"
 VERY_FIRST = 0
 TEMPERATURE_CHOICE = 0.5
 STOP_AT = None
@@ -159,17 +139,21 @@ def ask_chatgpt(user_message_text):
     openai.api_key = OPENAPI_API_KEY
 
     # Use OpenAI API to get the response for the given user text and intent
-    response = openai.Completion.create(
-        engine=OPENAI_ENGINE_VERSION,
-        prompt=user_message_text,
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a chatbot."},
+            {"role": "user", "content": user_message_text},
+        ],
         max_tokens=MAX_TOKENS,
         n=NUMBER_OF_QUERY,
         stop=STOP_AT,
         temperature=TEMPERATURE_CHOICE,
-    ).choices[VERY_FIRST].text
+    ).choices[VERY_FIRST].message['content']
 
     # Return the response from OpenAI
     return response
+
 
 
 class OpenAiGpt(Action):
@@ -182,13 +166,16 @@ class OpenAiGpt(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # Get the latest user text
         user_text = tracker.latest_message.get(TEXT_PROPERTY_NAME)
+        openai.api_key = OPENAPI_API_KEY
 
         prompt = self.buildprompt(user_text)
         # Dispatch the response from OpenAI to the user
-        dispatcher.utter_message(CHAT_GPT_CUSTOM_ACTION_ + ask_chatgpt(prompt))
+        dispatcher.utter_message(CHAT_GPT_CUSTOM_ACTION_ + ask_chatgpt(user_text))
 
         return []
 
     @staticmethod
     def buildprompt(user_text):
-        return f"The user said: {user_text}\nChatGPT: "
+        return (f"The user said: {user_text}\n"
+                f"ChatGPT: "
+                )

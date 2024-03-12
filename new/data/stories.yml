@@ -33,10 +33,10 @@ stories:
 
 
 
-#- story: call chatgpt and show answer
-#  steps:
-#  - intent: what_is_x
-#  - action: open_ai_gpt
+- story: call chatgpt and show answer
+  steps:
+  - intent: what_is_x
+  - action: open_ai_gpt
 
 ###################################################################################################################
 
@@ -73,6 +73,22 @@ stories:
   - action: utter_crop_register
   - intent: deny
   - action: utter_crop_register_deny
+- story:  path 4 other
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: affirm
+  - action: utter_planting_sowing
+  - intent: other
+  - action: utter_other
+
+
 - story:  path 4 dry sowing broadcasting
   steps:
   - intent: greet
@@ -91,17 +107,35 @@ stories:
   - action: utter_sowing_method
   - intent: broadcasting
   - action: utter_seed_quantity
-  - intent: seed_quantity
+  - intent: weight
   - action: utter_seed_cost
-  - intent: seed_cost
+  - intent: cost
+    entities:
+      - costs: 145
   - action: utter_male_labor_hour
-  - intent: labor_hour
+  - intent: hour
   - action: utter_female_labor_hour
-  - intent: labor_hour
+  - intent: hour
   - action: utter_male_labor_cost
-  - intent: labor_cost
+  - intent: cost
+    entities:
+      - costs: 155
   - action: utter_female_labor_cost
-  - intent: labor_cost
+  - intent: cost
+    entities:
+      - costs: 165
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -124,17 +158,23 @@ stories:
   - action: utter_sowing_method
   - intent: broadcasting
   - action: utter_seed_quantity
-  - intent: seed_quantity
+  - intent: weight
   - action: utter_seed_cost
-  - intent: seed_cost
+  - intent: cost
+    entities:
+      - costs: 145
   - action: utter_male_labor_hour
-  - intent: labor_hour
+  - intent: hour
   - action: utter_female_labor_hour
-  - intent: labor_hour
+  - intent: hour
   - action: utter_male_labor_cost
-  - intent: labor_cost
+  - intent: cost
+    entities:
+      - costs: 154
   - action: utter_female_labor_cost
-  - intent: labor_cost
+  - intent: cost
+    entities:
+      - costs: 165
 - story:  path 5 dry sowing machanized
   steps:
   - intent: greet
@@ -153,19 +193,25 @@ stories:
   - action: utter_sowing_method
   - intent: machanized
   - action: utter_seed_weight
-  - intent: seed_weight
+  - intent: weight
   - action: utter_seed_price
-  - intent: seed_price
+  - intent: cost
+    entities:
+      - costs: 165
   - action: utter_machine_rate
-  - intent: machine_rate
+  - intent: cost
   - action: utter_male_labor_hour
-  - intent: labor_hour
+  - intent: hour
   - action: utter_female_labor_hour
-  - intent: labor_hour
+  - intent: hour
   - action: utter_male_labor_cost
-  - intent: labor_cost
+  - intent: cost
+    entities:
+      - costs: 199
   - action: utter_female_labor_cost
-  - intent: labor_cost
+  - intent: cost
+    entities:
+      - costs: 399
 
 
 - story:  path 5 wet sowing machanized
@@ -186,19 +232,69 @@ stories:
   - action: utter_sowing_method
   - intent: machanized
   - action: utter_seed_weight
-  - intent: seed_weight
+  - intent: weight
   - action: utter_seed_price
-  - intent: seed_price
+  - intent: cost
+    entities:
+      - costs: 158
   - action: utter_machine_rate
-  - intent: machine_rate
+  - intent: cost
+    entities:
+      - costs: 185
   - action: utter_male_labor_hour
-  - intent: labor_hour
+  - intent: hour
   - action: utter_female_labor_hour
-  - intent: labor_hour
+  - intent: hour
   - action: utter_male_labor_cost
-  - intent: labor_cost
+  - intent: cost
+    entities:
+      - costs: 158
   - action: utter_female_labor_cost
-  - intent: labor_cost
+  - intent: cost
+    entities:
+      - costs: 756
+
+
+
+
+- story:  path 4 dry sowing other
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: affirm
+  - action: utter_planting_sowing
+  - intent: sowing
+  - action: utter_dry_wet_sowing
+  - intent: other
+  - action: utter_other
+
+
+
+
+
+- story:  path 5    wet sowing other
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: affirm
+  - action: utter_planting_sowing
+  - intent: sowing
+  - action: utter_dry_wet_sowing
+  - intent: other
+  - action: utter_other
+
 - story:  path 5 planting ready to plant seedlings
   steps:
   - intent: greet
@@ -216,20 +312,28 @@ stories:
   - intent: affirm
   - action: utter_vendor_name
   - intent: vendor_name
-  - action: utter_vendor_number
-  - intent: vendor_number
+    entities:
+      - vname: sreejaya
   - action: utter_sheet_number
-  - intent: sheet_number
+  - intent: count
   - action: utter_sheet_cost
-  - intent: sheet_cost
+  - intent: cost
+    entities:
+      - costs: 852
   - action: utter_total_sheet_cost
-  - intent: total_sheet_cost
+  - intent: cost
+    entities:
+      - costs: 562
   - action: utter_seed_cost_planting
-  - intent: seed_cost_planting
+  - intent: cost
+    entities:
+      - costs: 746
   - action: utter_total_seed_cost_planting
-  - intent: total_seed_cost_planting
+  - intent: cost
+    entities:
+      - costs: 551
 
-- story:  path 5 planting not ready to plant seedlings
+- story:  path 5 planting not ready to plant seedlings sheet
   steps:
   - intent: greet
   - action: utter_greet
@@ -247,33 +351,50 @@ stories:
   - action: utter_nursery_type
   - intent: sheet
   - action: utter_seed_weight
-  - intent: seed_weight
+  - intent: weight
   - action: utter_seed_cost_planting
-  - intent: seed_cost_planting
-  - action: utter_total_seed_cost_planting
-  - intent: total_seed_cost_planting
-  - action: utter_planting_area
-  - intent: planting_area
-  - action: utter_field_prepration_cost
-  - intent: field_preparation_cost
-  - action: utter_sheet_number
-  - intent: sheet_number
-  - action: utter_sheet_cost
-  - intent: sheet_cost
-  - action: utter_total_sheet_cost
-  - intent: total_sheet_cost
-  - action: utter_male_labour
-  - intent: labour_count
-  - action: utter_female_labour
-  - intent: labour_count
-  - action: utter_male_labour_cost
-  - intent: male_labour_cost
-  - action: utter_female_labour_cost
-  - intent: female_labour_cost
-  - action: utter_total_labour_cost
-  - intent: total_labour_cost
+  - intent: cost
+    entities:
+      - costs: 551
 
-- story:  path 6 planting not ready to plant seedlings
+  - action: utter_total_seed_cost_planting
+  - intent: cost
+    entities:
+      - costs: 156
+  - action: utter_planting_area
+  - intent: area
+  - action: utter_field_prepration_cost
+  - intent: cost
+    entities:
+      - costs: 165
+  - action: utter_sheet_number
+  - intent: count
+  - action: utter_sheet_cost
+  - intent: cost
+    entities:
+      - costs: 152
+  - action: utter_total_sheet_cost
+  - intent: cost
+    entities:
+      - costs: 521
+  - action: utter_male_labour
+  - intent: count
+  - action: utter_female_labour
+  - intent: count
+  - action: utter_male_labour_cost
+  - intent: cost
+    entities:
+      - costs: 526
+  - action: utter_female_labour_cost
+  - intent: cost
+    entities:
+      - costs: 523
+  - action: utter_total_labour_cost
+  - intent: cost
+    entities:
+      - costs: 856
+
+- story:  path 6 planting not ready to plant seedlings openfield
   steps:
   - intent: greet
   - action: utter_greet
@@ -291,26 +412,38 @@ stories:
   - action: utter_nursery_type
   - intent: open_field
   - action: utter_open_field_seedweight
-  - intent: open_field_seedweight
+  - intent: weight
   - action: utter_open_field_seedcost
-  - intent: open_field_seedcost
+  - intent: cost
+    entities:
+      - costs: 189
   - action: utter_open_field_seed_totalcost
-  - intent: open_field_seed_totalcost
+  - intent: cost
+    entities:
+      - costs: 562
   - action: utter_open_field_totalplanting_area
-  - intent: open_field_totalplanting_area
+  - intent: area
   - action: utter_open_field_field_prep_cost
-  - intent: open_field_field_prep_cost
+  - intent: cost
+    entities:
+      - costs: 556
   - action: utter_open_field_male_labour_count
-  - intent: open_field_male_labour_count
+  - intent: count
   - action: utter_open_field_female_labour_count
-  - intent: open_field_female_labour_count
+  - intent: count
   - action: utter_open_field_male_labour_cost
-  - intent: open_field_male_labour_cost
+  - intent: cost
+    entities:
+      - costs: 188
   - action: utter_open_field_female_labour_cost
-  - intent: open_field_female_labour_cost
+  - intent: cost
+    entities:
+      - costs: 189
   - action: utter_open_field_total_labour_cost
-  - intent: open_field_total_labour_cost
-- story:  path 7 planting not ready to plant seedlings
+  - intent: cost
+    entities:
+      - costs: 699
+- story:  path 7 planting not ready to plant seedlings tray
   steps:
   - intent: greet
   - action: utter_greet
@@ -328,32 +461,66 @@ stories:
   - action: utter_nursery_type
   - intent: tray_seeding
   - action: utter_tray_seeding_seedweight
-  - intent: tray_seeding_seedweight
+  - intent: weight
   - action: utter_tray_seeding_seedcost
-  - intent: tray_seeding_seedcost
+  - intent: cost
+    entities:
+      - costs: 873
   - action: utter_tray_seeding_seed_totalcost
-  - intent: tray_seeding_seed_totalcost
+  - intent: cost
+    entities:
+      - costs: 795
   - action: utter_tray_seeding_totalplanting_area
-  - intent: tray_seeding_totalplanting_area
+  - intent: area
   - action: utter_tray_seeding_field_prep_cost
-  - intent: tray_seeding_field_prep_cost
+  - intent: cost
+    entities:
+      - costs: 999
   - action: utter_no_of_tray
-  - intent: no_of_tray
+  - intent: count
   - action: utter_medium_quantity
-  - intent: medium_quantity
+  - intent: count
   - action: utter_medium_cost
-  - intent: medium_cost
+  - intent: cost
+    entities:
+      - costs: 422
   - action: utter_tray_seeding_male_labour_count
-  - intent: tray_seeding_male_labour_count
+  - intent: count
   - action: utter_tray_seeding_female_labour_count
-  - intent: tray_seeding_female_labour_count
+  - intent: count
   - action: utter_tray_seeding_male_labour_cost
-  - intent: tray_seeding_male_labour_cost
+  - intent: cost
+    entities:
+      - costs: 325
   - action: utter_tray_seeding_female_labour_cost
-  - intent: tray_seeding_female_labour_cost
+  - intent: cost
+    entities:
+      - costs: 458
   - action: utter_tray_seeding_total_labour_cost
-  - intent: tray_seeding_total_labour_cost
+  - intent: cost
+    entities:
+      - costs: 987
   - action: utter_tray_seeding_machine_hour
-  - intent: tray_seeding_machine_hour
+  - intent: hour
   - action: utter_tray_seeding_machine_cost
-  - intent: tray_seeding_machine_cost
+  - intent: cost
+    entities:
+      - costs: 119
+- story:  path 5 planting not ready to plant seedlings other
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_register
+  - intent: affirm
+  - action: utter_farm_register
+  - intent: affirm
+  - action: utter_crop_register
+  - intent: affirm
+  - action: utter_planting_sowing
+  - intent: planting
+  - action: utter_planting
+  - intent: deny
+  - action: utter_nursery_type
+  - intent: other
+  - action: utter_other

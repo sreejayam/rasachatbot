@@ -1,0 +1,10 @@
+[
+  {
+    "name": "costs",
+    "pattern": "\\d{3}"
+  },
+  {
+    "name": "vnumber",
+    "pattern": "\\d{10,12}"
+  }
+]

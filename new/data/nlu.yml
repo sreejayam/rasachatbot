@@ -109,199 +109,239 @@ nlu:
 - intent: broadcasting
   examples: |
     - broadcast
-    - broadcasting
+    - broadcasing
+    - broad
 - intent: machanized
   examples: |
-    - machanized
-- intent: seed_quantity
+    - machanize
+    -mach
+- intent: weight
   examples: |
-    - 1kg
-    - 2kg
-- intent: seed_cost
-  examples: |
-    - RS2500
-    - RS1000
-- intent: labor_hour
-  examples: |
-    - 6hour
-    - 7hour
-- intent: labor_cost
-  examples: |
-    - RS 100
-    - RS 150
+    - 5kg
+    - 9kg
+    - 12kg
 
-- intent: seed_weight
-    - 2kg
-    - 10kg
-- intent: seed_price
+
+- intent: cost
   examples: |
-    - RS2000
-    - RS5000
-- intent: machine_rate
+    - cost is [895](costs)
+    - cost [500](costs)
+    - total cost [588](cost)
+
+- regex: costs
   examples: |
-    - RS200
-    - RS250
+    - \d{3}
+
+
+- intent: hour
+  examples: |
+    - 15hour
+    - 16hour
+
+
+
+
+
+
+
 - intent: vendor_name
   examples: |
-    -[sreejaya](vname)
-    -[anu](vname)
-    -[sathvika](vname)
-    -[Arun](vname)
+    - name is [sreejaya](vname)
+    - the name [anu](vname)
+    - name [sathvika](vname)
+
 - intent: vendor_number
   examples: |
-    -[9544352990](number)
-    -[9656473690](number)
-- intent: sheet_cost
-  examples: |
-    - RS200
-    - RS250
-- intent: total_sheet_cost
-  examples: |
-    - RS2000
-    - RS2500
-- intent: total_seed_cost_planting
-  examples: |
-    - RS2000
-    - RS3000
+    - [9544352990](number)
+    - [9656473690](number)
+    - [9876543210](number)
+
+
 
 - intent: sheet
   examples: |
     - sheet
+    - sheets
 
-- intent: planting_area
+- intent: area
   examples: |
-    - 1 acre
-    - 2 acre
+    - 1acre
+    - 2acre
 
-- intent: field_preparation_cost
+
+- intent: count
   examples: |
-    - RS 2000
-    - RS 3000
-- intent: labour_count
-  examples: |
-    - 1 no's
-    - 2 no's
-- intent: male_labour_cost
-  examples: |
-    - RS650
-    - RS800
-- intent: female_labour_cost
-  examples: |
-    - RS500
-    - RS550
-- intent: total_labour_cost
-  examples: |
-    - RS2000
-    - RS2500
+    - 7nos
+    - 8nos
+
+
+
+
+
+
 - intent: open_field
   examples: |
     - openfield
     - open
-- intent: open_field_seedweight
-  examples: |
-    - 100kg
-    - 50kg
-- intent: open_field_seedcost
-  examples: |
-    - Rs.105
-    - Rs.110
-- intent: open_field_seed_totalcost
-  examples: |
-    - Rs.1250
-    - Rs.1350
-- intent: open_field_totalplanting_area
-  examples: |
-    - 25acres
-    - 1acres
-- intent: open_field_field_prep_cost
-  examples: |
-    - Rs.4300
-    - Rs.5200
-- intent: open_field_male_labour_count
-  examples: |
-    - 4nos
-    - 5nos
-- intent: open_field_female_labour_count
-  examples: |
-    - 8nos
-    - 7nos
-- intent: open_field_male_labour_cost
-  examples: |
-    - Rs.750
-    - Rs.815
-- intent: open_field_female_labour_cost
-  examples: |
-    - Rs.375
-    - Rs.350
-- intent: open_field_total_labour_cost
-  examples: |
-    - Rs.2375
-    - Rs.4350
+
+
+
+
+
+
 - intent: tray_seeding
   examples: |
     - tray-seeding
     - tray seeding
     - tray
-- intent: tray_seeding_seedweight
+
+- intent: other
   examples: |
-    - 10kg
-    - 50kg
-- intent: tray_seeding_seedcost
+    - other
+    - others
+    - oth
+
+- intent: fertilizer
   examples: |
-    - Rs.150
-    - Rs.120
-- intent: tray_seeding_seed_totalcost
+    - fertilizer
+    - fertilize
+- intent: herbicide
   examples: |
-    - Rs.1150
-    - Rs.1050
-- intent: tray_seeding_totalplanting_area
+    - herbicide
+    - herb
+- intent: pesticide
   examples: |
-    - 2acres
-    - 4acres
-- intent: tray_seeding_field_prep_cost
+    - pest
+    - pesticide
+- intent: manure
   examples: |
-    - Rs.3300
-    - Rs.5100
-- intent: no_of_tray
+    - manure
+    - manur
+- intent: fungicide
   examples: |
-    - 40
-    - 120
-- intent: medium_quantity
+    - fungi
+    - fungicide
+- intent: micronutrients
   examples: |
-    - 40nos
-    - 120nos
-- intent: medium_cost
+    - micro
+    - micronutrient
+    - micronutrients
+
+- intent: lime/dolomite
   examples: |
-    - Rs.115
-    - Rs.105
-- intent: tray_seeding_male_labour_count
+    - lime
+    - dolomate
+    - lime/dolomite
+
+- intent: fertilizer_name
   examples: |
-    - 3nos
-    - 1nos
-- intent: tray_seeding_female_labour_count
+    - npk
+    - n
+
+- intent: fertilizer_brand
   examples: |
-    - 2nos
-    - 10nos
-- intent: tray_seeding_male_labour_cost
+    - IFFCO
+    
+
+- intent: herbicide_name
   examples: |
-    - Rs.750
-    - Rs.815
-- intent: tray_seeding_female_labour_cost
+    - herbicide1
+    - herbicide2
+    
+
+- intent: pesticide_name
   examples: |
-    - Rs.315
-    - Rs.550
-- intent: tray_seeding_total_labour_cost
+    - tripan
+
+- intent: pesticide_brand
   examples: |
-    - Rs.2305
-    - Rs.4300
-- intent: tray_seeding_machine_hour
+    - tripanbrand
+- intent: manure_name
   examples: |
-    - 2hr
-    - 3hr
-- intent: tray_seeding_machine_cost
+    - ammonium sulphate
+
+- intent: manure_brand
   examples: |
-    - Rs.2000
-    - Rs.4100
+    - agrocare
+
+- intent: fungicide_name
+  examples: |
+    - azole
+
+- intent: fungicide_brand
+  examples: |
+    - azolebrand
+- intent: micronutrient_name
+  examples: |
+    - boron
+
+- intent: micronutrient_brand
+  examples: |
+    - boron20
+
+- intent: manual
+  examples: |
+    - manual
+
+- intent: contract
+  examples: |
+    - contract
+- intent: service_provider
+  examples: |
+    - arun
+    - das
+- intent: machinary_type
+  examples: |
+    - conoweeder
+
+- intent: machinary_brand
+  examples: |
+    - mahindra
+- intent: precision
+  examples: |
+    - precision
+    - precis
+    - precise
+    - prec
+
+- intent: flooding
+  examples: |
+    - flooding
+    - flood
+    - floo
+    - flod
+
+- intent: pumping
+  examples: |
+    - pumping
+    - pump
+    - pumpingg
+    - pum
+
+- intent: combined
+  examples: |
+    - combined
+    - combine
+    - combin
+    - combi
+
+- intent: date
+  examples: |
+    - 18/08/1998
+    - 18-08-1996
+    - 13-01-2000
+
+- intent: pumping_source
+  examples: |
+    - psrc1
+    - psrc2
+    - psrc3
+- intent: flooding_source
+  examples: |
+    - fsrc1
+    - fsrc2
+    - fsrc3
+
 ######################################sql############################################################3
 
 - intent: provide_details
@@ -335,5 +375,10 @@ nlu:
     -what are the data in the database
     -what are the data in the database
     -dispaly the records
+
+- intent: what_is_x
+  examples: |
+    -what is [dog](object_entity)
+    -what is [sowing](object_entity)   
 
 ##############################################################################################################

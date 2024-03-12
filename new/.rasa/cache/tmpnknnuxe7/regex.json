@@ -1,0 +1,6 @@
+[
+  {
+    "name": "costs",
+    "pattern": "\\d{3}"
+  }
+]

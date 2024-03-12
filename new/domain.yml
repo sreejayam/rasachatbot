@@ -14,55 +14,53 @@ intents:
   - wet_sowing
   - broadcasting
   - machanized
-  - seed_quantity
-  - seed_cost
-  - labor_hour
-  - labor_cost
-  - seed_weight
-  - seed_price
-  - machine_rate
+  - weight
+  - cost
+  - hour
   - vendor_name
   - vendor_number
-  - sheet_number
-  - sheet_cost
-  - total_sheet_cost
-  - seed_cost_planting
-  - total_seed_cost_planting
   - sheet
-  - sheet_quantity
-  - planting_area
-  - field_preparation_cost
-  - labour_count
-  - male_labour_cost
-  - female_labour_cost
-  - total_labour_cost
+  - area
+  - count
   - open_field
-  - open_field_seedweight
-  - open_field_seedcost
-  - open_field_seed_totalcost
-  - open_field_totalplanting_area
-  - open_field_field_prep_cost
-  - open_field_male_labour_count
-  - open_field_female_labour_count
-  - open_field_male_labour_cost
-  - open_field_female_labour_cost
-  - open_field_total_labour_cost
   - tray_seeding
-  - tray_seeding_seedweight
-  - tray_seeding_seedcost
-  - tray_seeding_seed_totalcost
-  - tray_seeding_totalplanting_area
-  - tray_seeding_field_prep_cost
-  - no_of_tray
-  - medium_quantity
-  - medium_cost
-  - tray_seeding_male_labour_count
-  - tray_seeding_female_labour_count
-  - tray_seeding_male_labour_cost
-  - tray_seeding_female_labour_cost
-  - tray_seeding_total_labour_cost
-  - tray_seeding_machine_hour
-  - tray_seeding_machine_cost
+  - other
+  - fertilizer
+  - herbicide
+  - pesticide
+  - manure
+  - fungicide
+  - micronutrients
+  - lime/dolomite
+  - fertilizer_name
+  - fertilizer_brand
+  - herbicide_name
+  - pesticide_name
+  - pesticide_brand
+  - manure_name
+  - manure_brand
+  - fungicide_name
+  - fungicide_brand
+  - micronutrient_name
+  - micronutrient_brand
+  - manual
+  - contract
+  - service_provider
+  - machinary_type
+  - machinary_brand
+  - precision
+  - flooding
+  - pumping
+  - combined
+  - date
+  -  pumping_source
+  - flooding_source
+
+
+
+
+
+
 
 
 
@@ -89,8 +87,11 @@ entities:
   - email
   - object_entity
 
-  - vendor_name
-  - vendor_number
+  - vname
+  - number
+  - costs
+
+
 
 
 slots:
@@ -114,7 +115,17 @@ slots:
     mappings:
       - type: from_entity
         entity: number
+  costs:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: costs
 
+  object_entity:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: object_entity
 
 
 
@@ -128,10 +139,19 @@ responses:
     - text: "good_bye"
   utter_greet:
   - text: "Hi!  I am Simplify Agri, your farming data collector. I'm here to gather important information to help optimize your farming operations. Are you ready to provide some valuable insights about your farm? Let's get started with a few questions, shall we?"
-
+    buttons:
+      - title: "Affirm"
+        payload: "/affirm"
+      - title: "Deny"
+        payload: "/deny"
 
   utter_register:
   - text: "Is the Farmer registered?"
+    buttons:
+      - title: "Affirm"
+        payload: "/affirm"
+      - title: "Deny"
+        payload: "/deny"
 
 
   utter_registration_deny:
@@ -139,19 +159,48 @@ responses:
 
   utter_farm_register:
   - text: "Before we proceed, may I inquire: Are the farms registered?"
+    buttons:
+      - title: "Affirm"
+        payload: "/affirm"
+      - title: "Deny"
+        payload: "/deny"
 
   utter_farm_register_deny:
     - text: "Please go through the Farm Registration page.Thank you"
   utter_crop_register:
     - text: "Could you kindly confirm: Are the crops on your farm registered?"
+      buttons:
+        - title: "Affirm"
+          payload: "/affirm"
+        - title: "Deny"
+          payload: "/deny"
   utter_crop_register_deny:
     - text: "Please go through the Crop Registration page.Thank you"
   utter_planting_sowing:
     - text: "Could you specify whether sowing or planting is typically done for your paddy crops?"
+      buttons:
+        - title: "Planting"
+          payload: "/planting"
+        - title: "Sowing"
+          payload: "/sowing"
+        - title: "Other"
+          payload: "/other"
   utter_dry_wet_sowing:
     - text: "Do you usually go for dry sowing or wet sowing methods?"
+      buttons:
+        - title: "Dry Sowing"
+          payload: "/dry_sowing"
+        - title: "Wet Sowing"
+          payload: "/wet_sowing"
   utter_sowing_method:
     - text: "Do you lean towards broadcasting or mechanized methods?"
+      buttons:
+        - title: "Broadcasting"
+          payload: "/broadcasting"
+        - title: "Machanized"
+          payload: "/machanized"
+        - title: "Other"
+          payload: "/other"
   utter_seed_quantity:
     - text: "Hey! How many bags or kilograms of seed do you usually toss into the mix for your farming?"
   utter_seed_cost:
@@ -172,6 +221,11 @@ responses:
     - text: "What's the going rate for running those machines per hour?"
   utter_planting:
     - text: "Are you ready to plant your seedlings?"
+      buttons:
+        - title: "Affirm"
+          payload: "/affirm"
+        - title: "Deny"
+          payload: "/deny"
   utter_vendor_name:
     - text: "Great! Can you tell me the name of the vendor where you bought the seedlings?"
   utter_vendor_number:
@@ -188,6 +242,15 @@ responses:
     - text: " Alright! What's the total cost of the seed?"
   utter_nursery_type:
     - text: " Alright, let's choose a nursery type for planting seedlings?choose sheet,open field or Tray seeding?"
+      buttons:
+        - title: "Sheet"
+          payload: "/sheet"
+        - title: "Open Field"
+          payload: "/open_field"
+        - title: "Try Seeding"
+          payload: "/tray_seeding"
+        - title: "Other"
+          payload: "/other"
 
   utter_planting_area:
     - text: " Moving on, what's the total planting area (acres)?"
@@ -254,9 +317,388 @@ responses:
   utter_tray_seeding_machine_cost:
      - text: "Total machine cost?"
 
+  utter_input_methods:
+    - text: "Hello! It seems like you've been actively managing your agricultural inputs. Let's delve into the details. First up, which type of application are we discussing?"
+      buttons:
+        - title: "Fertilizer"
+          payload: "/fertilizer"
+        - title: "Herbicide"
+          payload: "/herbicide"
+        - title: "Pesticide"
+          payload: "/pesticide"
+        - title: "Manure"
+          payload: "/manure"
+        - title: "Fungicide"
+          payload: "/fungicide"
+        - title: "Micronutrients"
+          payload: "/micronutrients"
+        - title: "Others"
+          payload: "/others"
+  utter_name_fertilizer:
+    - text: "Hi there! What the name of fertilizer you applied?"
+  utter_quantity_fertilizer:
+    - text: "How much is the unit quantity?"
+  utter_price_fertilizer:
+    - text: "Got it. And what was the unit price for this fertilizer?"
+  utter_transportation_cost_fertilizer:
+    - text: "Thanks for sharing. Were there any transportation costs associated with the fertilizer?"
+  utter_quantityperacre_fertilizer:
+    - text: "Understood. Moving on to the application, how much of the fertilizer did you apply per acre?"
+  utter_brand_fertilizer:
+    - text: "Great! Lastly, can you confirm the brand of the fertilizer you used?"
+  utter_name_herbicide:
+    - text: "Hi there! What the name of herbicide you applied?"
+  utter_quantity_herbicide:
+    - text: "How much is the unit quantity?"
+  utter_price_herbicide:
+    - text: "Got it. And what was the unit price for this herbicide?"
+  utter_transportation_cost_herbicide:
+    - text: "Thanks for sharing. Were there any transportation costs associated with the herbicide?"
+  utter_quantityperacre_herbicide:
+    - text: "Understood. Moving on to the application, how much of the herbicide did you apply per acre?"
+  utter_name_pesticide:
+    - text: "Hi there! What the name of pesticide you applied?"
+  utter_quantity_pesticide:
+    - text: "How much is the unit quantity?"
+  utter_price_pesticide:
+    - text: "Got it. And what was the unit price for this pesticide?"
+  utter_transportation_cost_pesticide:
+    - text: "Thanks for sharing. Were there any transportation costs associated with the pesticide?"
+  utter_quantityperacre_pesticide:
+    - text: "Understood. Moving on to the application, how much of the pesticide did you apply per acre?"
+  utter_brand_pesticide:
+    - text: "Great! Lastly, can you confirm the brand of the pesticide you used?"
+
+  utter_name_manure:
+    - text: "Hi there! What the name of manure you applied?"
+  utter_quantity_manure:
+    - text: "How much is the unit quantity?"
+  utter_price_manure:
+    - text: "Got it. And what was the unit price for this manure?"
+  utter_transportation_cost_manure:
+    - text: "Thanks for sharing. Were there any transportation costs associated with the manure?"
+  utter_quantityperacre_manure:
+    - text: "Understood. Moving on to the application, how much of the manure did you apply per acre?"
+  utter_brand_manure:
+    - text: "Great! Lastly, can you confirm the brand of the manure you used?"
+
+  utter_name_fungicide:
+    - text: "Hi there! What the name of fungicide you applied?"
+  utter_quantity_fungicide:
+    - text: "How much is the unit quantity?"
+  utter_price_fungicide:
+    - text: "Got it. And what was the unit price for this fungicide?"
+  utter_transportation_cost_fungicide:
+    - text: "Thanks for sharing. Were there any transportation costs associated with the fungicide?"
+  utter_quantityperacre_fungicide:
+    - text: "Understood. Moving on to the application, how much of the manure did you apply per acre?"
+  utter_brand_fungicide:
+    - text: "Great! Lastly, can you confirm the brand of the manure you used?"
+
+  utter_name_micronutrients:
+    - text: "Hi there! What the name of micronutrients you applied?"
+  utter_quantity_micronutrients:
+    - text: "How much is the unit quantity?"
+  utter_price_micronutrients:
+    - text: "Got it. And what was the unit price for this micronutrients?"
+  utter_transportation_cost_micronutrients:
+    - text: "Thanks for sharing. Were there any transportation costs associated with the micronutrients?"
+  utter_quantityperacre_micronutrients:
+    - text: "Understood. Moving on to the application, how much of the micronutrients did you apply per acre?"
+  utter_brand_micronutrients:
+    - text: "Great! Lastly, can you confirm the brand of the micronutrients you used?"
+
+  utter_input_mechanism:
+    - text: "specify the input mechanism of applying inputs!"
+      buttons:
+        - title: "Manual"
+          payload: "/manual"
+        - title: "Mechanized"
+          payload: "/machanized"
+        - title: "Contract"
+          payload: "/contract"
+        - title: "Other"
+          payload : "/other"
+  utter_manual_men_labour:
+    - text: "Great! How many men were involved in the labor?"
+  utter_manual_women_labour:
+    - text: "Great! How many women were involved in the labor?"
+  utter_manual_men_labour_hour:
+    - text: "Thanks for sharing. Can you tell me the total number of labor hours put in by the men?"
+  utter_manual_women_labour_hour:
+    - text: "Okay. And what about the women? How many labor hours did they contribute?"
+  utter_manual_men_labour_cost:
+    - text: "Thanks for the details. Now, let's talk about wages. What was the wage for men labor?"
+  utter_manual_women_labour_cost:
+    - text: "Got it. And how about the women? What was their wage?"
+  utter_manual_refreshment_cost:
+    - text: "Thanks for sharing the wage details. Moving on, did you incur any expenses on refreshments for the labor?"
+  utter_manual_other_cost:
+    - text: "Alright. Were there any other miscellaneous expenses? If yes, how much did you spend?"
+  utter_machanized_provider_name:
+    - text: "Hello! It seems like you also utilized some mechanized method for applying inputs. Can you tell me the name of the service provider?"
+  utter_machanized_machinary_type:
+    - text: "Thanks for providing the contact information. Now, let's talk about the machinery. Which type of machine was used for applying inputs?"
+  utter_machanized_machinary_brand:
+    - text: "Interesting choice! And do you recall the brand of the  machine?"
+  utter_machanized_machinary_count:
+    - text: "Good to know. How many machines, in total, were utilized for the process?"
+  utter_machanized_machinary_cost:
+    - text: "Thanks for sharing the details. Lastly, what was the rental cost for the machines per acre?"
+  utter_contract_service_provider:
+    - text: "Hello! It seems like you also utilized some mechanized method for applying inputs. Can you tell me the name of the service provider?"
+  utter_contract_machinary_type:
+    - text: "Thanks for providing the contact information. Now, let's talk about the machinery. Which type of machine was used for applying inputs?"
+  utter_contract_machinary_brand:
+    - text: "Interesting choice! And do you recall the brand of the  machine?"
+  utter_contract_machinary_duration:
+    - text: "Thanks for the details. Now, let's talk about the duration. How many machine hours were dedicated to the weeding process?"
+  utter_contract_machinary_rental_rate:
+    - text: "Got it. Moving on to costs, what was the rental rate for  per acre?"
+  utter_contract_machinary_fuel_cost:
+    - text: "Okay. Were there any additional costs like fuel expenses for the machines?"
+  utter_contract_men_labour:
+    - text: "Great! How many men were involved in the labor?"
+  utter_contract_women_labour:
+    - text: "Great! How many women were involved in the labor?"
+  utter_contract_men_labour_hour:
+    - text: "Thanks for sharing. Can you tell me the total number of labor hours put in by the men?"
+  utter_contract_women_labour_hour:
+    - text: "Okay. And what about the women? How many labor hours did they contribute?"
+  utter_contract_men_labour_cost:
+    - text: "Thanks for the details. Now, let's talk about wages. What was the wage for men labor?"
+  utter_contract_women_labour_cost:
+    - text: "Got it. And how about the women? What was their wage?"
+  utter_contract_refreshment_cost:
+    - text: "Thanks for sharing the wage details. Moving on, did you incur any expenses on refreshments for the labor?"
+  utter_contract_other_cost:
+    - text: "Alright. Were there any other miscellaneous expenses? If yes, how much did you spend?"
 
 
-########################################sql######################################################
+
+  utter_weeding_type:
+    - text: "Hello there! It looks like you've been involved in some weeding activities. Could you share more details about the type of weeding you're referring to? "
+      buttons:
+        - title: "Manual"
+          payload: "/manual"
+        - title: "Mechanized"
+          payload: "/machanized"
+        - title: "Contract"
+          payload: "/contract"
+        - title: "Other"
+          payload : "/other"
+  utter_weeding_manual_men_labour:
+    - text: "Great! How many men were involved in the labor?"
+  utter_weeding_manual_women_labour:
+    - text: "Great! How many women were involved in the labor?"
+  utter_weeding_manual_men_labour_hour:
+    - text: "Thanks for sharing. Can you tell me the total number of labor hours put in by the men?"
+  utter_weeding_manual_women_labour_hour:
+    - text: "Okay. And what about the women? How many labor hours did they contribute?"
+  utter_weeding_manual_men_labour_cost:
+    - text: "Thanks for the details. Now, let's talk about wages. What was the wage for men labor?"
+  utter_weeding_manual_women_labour_cost:
+    - text: "Got it. And how about the women? What was their wage?"
+  utter_weeding_manual_refreshment_cost:
+    - text: "Thanks for sharing the wage details. Moving on, did you incur any expenses on refreshments for the labor?"
+  utter_weeding_manual_other_cost:
+    - text: "Alright. Were there any other miscellaneous expenses? If yes, how much did you spend?"
+  utter_weeding_machanized_provider_name:
+    - text: "Hello! It seems like you also utilized some mechanized method for applying inputs. Can you tell me the name of the service provider?"
+  utter_weeding_machanized_machinary_type:
+    - text: "Thanks for providing the contact information. Now, let's talk about the machinery. Which type of machine was used for applying inputs?"
+  utter_weeding_machanized_machinary_brand:
+    - text: "Interesting choice! And do you recall the brand of the  machine?"
+  utter_weeding_machanized_machinary_count:
+    - text: "Good to know. How many machines, in total, were utilized for the process?"
+  utter_weeding_machanized_machinary_cost:
+    - text: "Thanks for sharing the details. Lastly, what was the rental cost for the machines per acre?"
+  utter_weeding_contract_service_provider:
+    - text: "Hello! It seems like you also utilized some mechanized method for applying inputs. Can you tell me the name of the service provider?"
+  utter_weeding_contract_machinary_type:
+    - text: "Thanks for providing the contact information. Now, let's talk about the machinery. Which type of machine was used for applying inputs?"
+  utter_weeding_contract_machinary_brand:
+    - text: "Interesting choice! And do you recall the brand of the  machine?"
+  utter_weeding_contract_machinary_duration:
+    - text: "Thanks for the details. Now, let's talk about the duration. How many machine hours were dedicated to the weeding process?"
+  utter_weeding_contract_machinary_rental_rate:
+    - text: "Got it. Moving on to costs, what was the rental rate for  per acre?"
+  utter_weeding_contract_machinary_fuel_cost:
+    - text: "Okay. Were there any additional costs like fuel expenses for the machines?"
+  utter_weeding_contract_men_labour:
+    - text: "Great! How many men were involved in the labor?"
+  utter_weeding_contract_women_labour:
+    - text: "Great! How many women were involved in the labor?"
+  utter_weeding_contract_men_labour_hour:
+    - text: "Thanks for sharing. Can you tell me the total number of labor hours put in by the men?"
+  utter_weeding_contract_women_labour_hour:
+    - text: "Okay. And what about the women? How many labor hours did they contribute?"
+  utter_weeding_contract_men_labour_cost:
+    - text: "Thanks for the details. Now, let's talk about wages. What was the wage for men labor?"
+  utter_weeding_contract_women_labour_cost:
+    - text: "Got it. And how about the women? What was their wage?"
+  utter_weeding_contract_refreshment_cost:
+    - text: "Thanks for sharing the wage details. Moving on, did you incur any expenses on refreshments for the labor?"
+  utter_weeding_contract_other_cost:
+    - text: "Alright. Were there any other miscellaneous expenses? If yes, how much did you spend?"
+
+
+  utter_other:
+    - text: "Sry for inconvenience,our technical team will contact you for clarification,Please continue with rest of questions!"
+  utter_gapfilling_male_labour_count:
+    - text: "How many male workers were engaged in gap filling activities?"
+  utter_gapfilling_female_labour_count:
+    - text: "And how many female workers participated in gap filling tasks?"
+  utter_gapfilling_male_labour_hour:
+    - text: "Could you provide an estimate of the total man-hours dedicated to gap filling tasks?"
+  utter_gapfilling_female_labour_hour:
+    - text: "Similarly, what was the total number of woman-hours contributed to gap filling activities?"
+  utter_gapfilling_refreshment:
+    - text: "Were any refreshments provided to the laborers during their work hours while gap filling?if yes whats the expense?"
+  utter_miscellaneous_expenses:
+    - text: "Were there any other miscellaneous expenses incurred in managing the labor force for gap filling operations? If yes, could you please specify the amount?"
+  utter_surveillance_serviceprovider:
+    - text: "Who is the service provider for surveillance?"
+  utter_surveillance_serviceprovider_contact:
+    - text: "Could you please provide the contact number of the surveillance service provider?"
+  utter_surveillance_machinetype:
+    - text: "What type of machine is being used for surveillance?"
+  utter_surveillance_machinebrand:
+    - text: "Which brand of machine is being utilized for surveillance purposes?"
+  utter_surveillance_machinecount:
+    - text: "How many machines are deployed for surveillance?"
+  utter_surveillance_machinerent:
+    - text: "What is the rental cost per acre for the surveillance machines?"
+  utter_irrigation_options:
+    - text: "What are the  irrigation options you choose?"
+      buttons:
+        - title: "precision"
+          payload: "/precision"
+        - title: "pumping"
+          payload: "/pumping"
+        - title: "flooding"
+          payload: "/flooding"
+  utter_irrigation_precision_date:
+    - text: "On what date was the precision irrigation system initiated?"
+  utter_irrigation_precision_hour:
+    - text: "How many hours per day is the precision irrigation system operational?"
+  utter_irrigation_precision_totalcost:
+    - text: "What is the total cost associated with the precision irrigation system implementation?"
+  utter_irrigation_precision_malelabourcost:
+    - text: "Could you please provide the costs for male labor hours involved in managing the precision irrigation system?"
+  utter_irrigation_precision_femalelabourcost:
+    - text: "How much it costs for Female labors ?"
+  utter_irrigation_precision_malelabourhour:
+    - text: "Could you provide an estimate of the male labor hours involved in precision irrigation activities?"
+  utter_irrigation_precision_femalelabourhour:
+    - text: "Likewise, how about the female labour hours?"
+  utter_irrigation_precision_malelabourcount:
+    - text: "How many male laborers were involved in precision irrigation tasks?"
+  utter_irrigation_precision_femalelabourcount:
+    - text: "How many female laborers were involved  in precision irrigation activities?"
+  utter_irrigation_precision_machinerent:
+    - text: "How much is the rental cost per hour for the precision irrigation machine?"
+  utter_irrigation_pumping_source:
+    - text: "Could you please specify the source of the pumping system?"
+  utter_irrigation_pumping_date:
+    - text: "On what date was the pumping system initiated?"
+  utter_irrigation_pumping_totalcost:
+    - text: "What is the total cost associated with the pumping irrigation system implementation?"
+  utter_irrigation_pumping_malelabourcost:
+    - text: "Could you please provide the costs for male labor hours involved in managing the pumping irrigation system?"
+  utter_irrigation_pumping_femalelabourcost:
+    - text: "How much it costs for Female labors ?"
+  utter_irrigation_pumping_malelabourhour:
+    - text: "Could you provide an estimate of the male labor hours involved in pumping irrigation activities?"
+  utter_irrigation_pumping_femalelabourhour:
+    - text: "Likewise, how about the female labour hours?"
+  utter_irrigation_pumping_malelabourcount:
+    - text: "How many male laborers were involved in pumping irrigation tasks?"
+  utter_irrigation_pumping_femalelabourcount:
+    - text: "How many female laborers were involved  in pumping irrigation activities?"
+  utter_irrigation_pumping_rentalcost:
+    - text: "How much is the rental cost per hour for the pumping equipment?"
+  utter_irrigation_flooding_source:
+    - text: "What irrigation method involves flooding?"
+  utter_irrigation_flooding_date:
+    - text: "On what date was the flooding system initiated?"
+  utter_irrigation_flooding_totalcost:
+    - text: "What is the total cost associated with the flooding irrigation system implementation?"
+  utter_irrigation_flooding_malelabourcost:
+    - text: "Could you please provide the costs for male labor hours involved in managing the flooding irrigation system?"
+  utter_irrigation_flooding_femalelabourcost:
+    - text: "How much it costs for Female labors ?"
+  utter_irrigation_flooding_malelabourhour:
+    - text: "Could you provide an estimate of the male labor hours involved in flooding irrigation activities?"
+  utter_irrigation_flooding_femalelabourhour:
+    - text: "Likewise, how about the female labour hours?"
+  utter_irrigation_flooding_malelabourcount:
+    - text: "How many male laborers were involved in flooding irrigation tasks?"
+  utter_irrigation_flooding_femalelabourcount:
+    - text: "How many female laborers were involved  in flooding irrigation activities?"
+  utter_harvest_option:
+    - text: "Which harvesting option do you prefer for this season?"
+      buttons:
+        - title: "combined harvesting"
+          payload: "/combined"
+        - title: "manual harvesting"
+          payload: "/manual"
+        - title: "mechanized harvesting"
+          payload: "/machanized"
+  utter_harvest_combined_machinemodel:
+    - text: "What is the machine model used for combined harvesting?"
+  utter_harvest_combined_hour:
+    - text: "How many hours per day is the combined harvesting process typically operational?"
+  utter_harvest_combined_wage:
+    - text: "What is the wage rate for laborers involved in combined harvesting?"
+  utter_harvest_combined_yield:
+    - text: "Could you provide an estimate of the yield obtained through combined harvesting?"
+  utter_harvest_manual_malelabourcost:
+    - text: "What is the wage rate for male laborers participating in harvesting?"
+  utter_harvest_manual_femalelabourcost:
+    - text: "What is the wage rate for female laborers participating in harvesting?"
+  utter_harvest_manual_malelabourhour:
+    - text: "Could you provide an estimate of the total hours worked by male laborers in harvesting?"
+  utter_harvest_manual_femalelabourhour:
+    - text: "How about the total hours worked by female laborers in harvesting?"
+  utter_harvest_manual_malelabourcount:
+    - text: "How many male laborers were involved in harvesting?"
+  utter_harvest_manual_femalelabourcount:
+    - text: "How many female laborers were involved in harvesting?"
+  utter_harvest_mechanized_machinemodel:
+    - text: "What is the machine model used for harvesting?"
+  utter_harvest_mechanized_machinehour:
+    - text: "How many hours per day is the harvesting machine operational?"
+  utter_harvest_mechanized_machinerent:
+    - text: "What is the rental cost per hour for the harvesting machine?"
+  utter_harvest_mechanized_otherexpense:
+    - text: "Were there any other expenses incurred during the harvesting process,if yes how much?"
+  utter_harvest_mechanized_malelabourcost:
+    - text: "What is the wage rate for male laborers participating in harvesting?"
+  utter_harvest_mechanized_femalelabourcost:
+    - text: "What is the wage rate for female laborers participating in harvesting?"
+  utter_harvest_mechanized_malelabourhour:
+    - text: "Could you provide an estimate of the total hours worked by male laborers in harvesting?"
+  utter_harvest_mechanized_femalelabourhour:
+    - text: "What is the total number of hours worked by female laborers in harvesting?"
+  utter_harvest_mechanized_malelabourcount:
+    - text: "How many male laborers are participating in the harvesting process?"
+  utter_harvest_mechanized_femalelabourcount:
+    - text: "How many female laborers are participating in the harvesting process?"
+  utter_harvest_mechanized_grain_yield:
+    - text: "How much grain yield was obtained from the harvest?"
+  utter_harvest_mechanized_bale_yield:
+    - text: "How much bale yield was obtained from the harvest?"
+  utter_post_harvest_prep:
+    - text: " Have you started the plowing and field preparation for the next crop ?"
+      buttons:
+        - title: "Affirm"
+          payload: "/affirm"
+        - title: "Deny"
+          payload: "/deny"
+
+
+  ########################################sql######################################################
 
 
 
@@ -267,11 +709,14 @@ responses:
 
   utter_thanks:
     - text: "thanks, your data Name:{name} and Email:{email} is saved in the database"
+
+
 actions:
   - action_save_data
   - action_show_all_data
   - open_ai_gpt
-#  - action_extract_cost_entity     #for slot
+  - action_enter_phone_number
+  - action_extract_cost_entity     #for slot
 
 
 
